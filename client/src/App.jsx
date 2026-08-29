@@ -71,7 +71,7 @@ import CertificationsAdmin from "./pages/admin/Certifications";
 // =====================================================
 
 import "./components/portfolio/Hero.css";
-import "./components/portfolio/About.css";
+import "./components/portfolio/about.css";
 import "./components/portfolio/Education.css";
 import "./components/portfolio/Experience.css";
 import "./components/portfolio/Skills.css";
