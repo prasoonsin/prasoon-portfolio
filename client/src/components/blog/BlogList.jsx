@@ -5,8 +5,8 @@ import BlogFilter from "./BlogFilter";
 import BlogSearch from "./BlogSearch";
 
 const API_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
-
+  import.meta.env.VITE_API_URL ||
+  "https://prasoon-portfolio-qxbv.onrender.com/api";
 function BlogList() {
   const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState("");
