@@ -1,3 +1,7 @@
+// =====================================================
+// API BASE URL
+// =====================================================
+
 const API_URL =
   import.meta.env.VITE_API_URL ||
   "https://prasoon-portfolio-qxbv.onrender.com/api";
@@ -52,12 +56,10 @@ export const getEducation = async () => {
   return request(`${API_URL}/education`);
 };
 
-
 // Get one education record
 export const getEducationById = async (id) => {
   return request(`${API_URL}/education/${id}`);
 };
-
 
 // Create education record
 export const createEducation = async (educationData) => {
@@ -66,7 +68,6 @@ export const createEducation = async (educationData) => {
     body: JSON.stringify(educationData),
   });
 };
-
 
 // Update education record
 export const updateEducation = async (
@@ -78,7 +79,6 @@ export const updateEducation = async (
     body: JSON.stringify(educationData),
   });
 };
-
 
 // Delete education record
 export const deleteEducation = async (id) => {
@@ -97,12 +97,10 @@ export const getExperience = async () => {
   return request(`${API_URL}/experience`);
 };
 
-
 // Get one experience record
 export const getExperienceById = async (id) => {
   return request(`${API_URL}/experience/${id}`);
 };
-
 
 // Create experience record
 export const createExperience = async (experienceData) => {
@@ -111,7 +109,6 @@ export const createExperience = async (experienceData) => {
     body: JSON.stringify(experienceData),
   });
 };
-
 
 // Update experience record
 export const updateExperience = async (
@@ -123,7 +120,6 @@ export const updateExperience = async (
     body: JSON.stringify(experienceData),
   });
 };
-
 
 // Delete experience record
 export const deleteExperience = async (id) => {
@@ -142,12 +138,10 @@ export const getSkills = async () => {
   return request(`${API_URL}/skills`);
 };
 
-
 // Get one skill
 export const getSkillById = async (id) => {
   return request(`${API_URL}/skills/${id}`);
 };
-
 
 // Create skill
 export const createSkill = async (skillData) => {
@@ -156,7 +150,6 @@ export const createSkill = async (skillData) => {
     body: JSON.stringify(skillData),
   });
 };
-
 
 // Update skill
 export const updateSkill = async (
@@ -168,7 +161,6 @@ export const updateSkill = async (
     body: JSON.stringify(skillData),
   });
 };
-
 
 // Delete skill
 export const deleteSkill = async (id) => {
@@ -187,12 +179,10 @@ export const getCertifications = async () => {
   return request(`${API_URL}/certifications`);
 };
 
-
-// Get one certification
+// Get one certification record
 export const getCertificationById = async (id) => {
   return request(`${API_URL}/certifications/${id}`);
 };
-
 
 // Create certification
 export const createCertification = async (
@@ -204,7 +194,6 @@ export const createCertification = async (
   });
 };
 
-
 // Update certification
 export const updateCertification = async (
   id,
@@ -215,7 +204,6 @@ export const updateCertification = async (
     body: JSON.stringify(certificationData),
   });
 };
-
 
 // Delete certification
 export const deleteCertification = async (id) => {
@@ -234,12 +222,10 @@ export const getCodingStats = async () => {
   return request(`${API_URL}/coding-stats`);
 };
 
-
 // Get coding stats by ID
 export const getCodingStatsById = async (id) => {
   return request(`${API_URL}/coding-stats/${id}`);
 };
-
 
 // Create coding stats
 export const createCodingStats = async (
@@ -251,7 +237,6 @@ export const createCodingStats = async (
   });
 };
 
-
 // Update coding stats
 export const updateCodingStats = async (
   id,
@@ -262,7 +247,6 @@ export const updateCodingStats = async (
     body: JSON.stringify(codingStatsData),
   });
 };
-
 
 // Delete coding stats
 export const deleteCodingStats = async (id) => {
@@ -281,12 +265,10 @@ export const getProjects = async () => {
   return request(`${API_URL}/projects`);
 };
 
-
 // Get one project
 export const getProjectById = async (id) => {
   return request(`${API_URL}/projects/${id}`);
 };
-
 
 // Create project
 export const createProject = async (projectData) => {
@@ -295,7 +277,6 @@ export const createProject = async (projectData) => {
     body: JSON.stringify(projectData),
   });
 };
-
 
 // Update project
 export const updateProject = async (
@@ -307,7 +288,6 @@ export const updateProject = async (
     body: JSON.stringify(projectData),
   });
 };
-
 
 // Delete project
 export const deleteProject = async (id) => {
@@ -326,12 +306,10 @@ export const getContacts = async () => {
   return request(`${API_URL}/contacts`);
 };
 
-
 // Get one contact
 export const getContactById = async (id) => {
   return request(`${API_URL}/contacts/${id}`);
 };
-
 
 // Create contact
 export const createContact = async (contactData) => {
@@ -340,7 +318,6 @@ export const createContact = async (contactData) => {
     body: JSON.stringify(contactData),
   });
 };
-
 
 // Update contact
 export const updateContact = async (
@@ -352,7 +329,6 @@ export const updateContact = async (
     body: JSON.stringify(contactData),
   });
 };
-
 
 // Delete contact
 export const deleteContact = async (id) => {
@@ -370,7 +346,6 @@ export const getMessages = async () => {
   return getContacts();
 };
 
-
 export const getMessageById = async (id) => {
   return getContactById(id);
 };
@@ -385,12 +360,10 @@ export const getTags = async () => {
   return request(`${API_URL}/tags`);
 };
 
-
 // Get one tag
 export const getTagById = async (id) => {
   return request(`${API_URL}/tags/${id}`);
 };
-
 
 // Create tag
 export const createTag = async (tagData) => {
@@ -399,7 +372,6 @@ export const createTag = async (tagData) => {
     body: JSON.stringify(tagData),
   });
 };
-
 
 // Update tag
 export const updateTag = async (
@@ -411,7 +383,6 @@ export const updateTag = async (
     body: JSON.stringify(tagData),
   });
 };
-
 
 // Delete tag
 export const deleteTag = async (id) => {
@@ -430,12 +401,10 @@ export const getUsers = async () => {
   return request(`${API_URL}/users`);
 };
 
-
 // Get one user
 export const getUserById = async (id) => {
   return request(`${API_URL}/users/${id}`);
 };
-
 
 // Get user by email
 export const getUserByEmail = async (email) => {
@@ -454,12 +423,10 @@ export const getBlogs = async () => {
   return request(`${API_URL}/blogs`);
 };
 
-
 // Get one blog post by ID
 export const getBlogById = async (id) => {
   return request(`${API_URL}/blogs/${id}`);
 };
-
 
 // Get one blog post by slug
 export const getBlogBySlug = async (slug) => {
@@ -468,7 +435,6 @@ export const getBlogBySlug = async (slug) => {
   );
 };
 
-
 // Create blog post
 export const createBlog = async (blogData) => {
   return request(`${API_URL}/blogs`, {
@@ -476,7 +442,6 @@ export const createBlog = async (blogData) => {
     body: JSON.stringify(blogData),
   });
 };
-
 
 // Update blog post
 export const updateBlog = async (
@@ -488,7 +453,6 @@ export const updateBlog = async (
     body: JSON.stringify(blogData),
   });
 };
-
 
 // Delete blog post
 export const deleteBlog = async (id) => {
@@ -506,16 +470,13 @@ export const getPosts = async () => {
   return getBlogs();
 };
 
-
 export const getPostById = async (id) => {
   return getBlogById(id);
 };
 
-
 export const createPost = async (postData) => {
   return createBlog(postData);
 };
-
 
 export const updatePost = async (
   id,
@@ -523,7 +484,6 @@ export const updatePost = async (
 ) => {
   return updateBlog(id, postData);
 };
-
 
 export const deletePost = async (id) => {
   return deleteBlog(id);
@@ -539,7 +499,6 @@ export const getComments = async () => {
   return request(`${API_URL}/comments`);
 };
 
-
 // Get comments for a specific blog
 export const getCommentsByBlogId = async (
   blogId
@@ -549,12 +508,10 @@ export const getCommentsByBlogId = async (
   );
 };
 
-
 // Get one comment
 export const getCommentById = async (id) => {
   return request(`${API_URL}/comments/${id}`);
 };
-
 
 // Create comment
 export const createComment = async (
@@ -566,7 +523,6 @@ export const createComment = async (
   });
 };
 
-
 // Update comment
 export const updateComment = async (
   id,
@@ -577,7 +533,6 @@ export const updateComment = async (
     body: JSON.stringify(commentData),
   });
 };
-
 
 // Delete comment
 export const deleteComment = async (id) => {
@@ -598,7 +553,6 @@ export const login = async (credentials) => {
   });
 };
 
-
 export const register = async (userData) => {
   return request(`${API_URL}/auth/register`, {
     method: "POST",
@@ -608,7 +562,7 @@ export const register = async (userData) => {
 
 
 // =====================================================
-// API URL
+// API URL EXPORT
 // =====================================================
 
 export { API_URL };
