@@ -1,0 +1,619 @@
+/* =========================================================
+   DASHBOARD PAGE
+   ========================================================= */
+
+.admin-dashboard {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 50px 55px 80px;
+
+  background:
+    radial-gradient(
+      circle at 85% 0%,
+      rgba(124, 92, 255, 0.14),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 5% 100%,
+      rgba(40, 150, 255, 0.08),
+      transparent 28%
+    ),
+    #08080a;
+
+  color: #ffffff;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.admin-dashboard .dashboard-header {
+  width: 100%;
+  max-width: 1250px;
+
+  margin: 0 auto 35px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+}
+
+
+/* ADMIN PANEL */
+
+.admin-dashboard .dashboard-label {
+  display: block;
+
+  margin: 0 0 10px;
+
+  color: #8f82ff !important;
+
+  font-size: 12px !important;
+  font-weight: 700 !important;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  line-height: 1.2;
+}
+
+
+/* DASHBOARD TITLE */
+
+.admin-dashboard .dashboard-header h1 {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: #ffffff !important;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif !important;
+
+  font-size: 48px !important;
+  font-weight: 700 !important;
+
+  line-height: 1.1 !important;
+
+  letter-spacing: -1.5px;
+}
+
+
+/* DESCRIPTION */
+
+.admin-dashboard .dashboard-header p {
+  margin: 13px 0 0 !important;
+  padding: 0 !important;
+
+  color: #85858f !important;
+
+  font-size: 15px !important;
+  font-weight: 400 !important;
+
+  line-height: 1.6 !important;
+}
+
+
+/* =========================================================
+   SYSTEM ONLINE
+   ========================================================= */
+
+.admin-dashboard .dashboard-status {
+  display: flex;
+
+  align-items: center;
+  gap: 9px;
+
+  margin-top: 5px;
+
+  padding: 9px 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  color: #a5a5ae !important;
+
+  font-size: 12px !important;
+  font-weight: 500 !important;
+
+  white-space: nowrap;
+
+  backdrop-filter: blur(12px);
+}
+
+
+.admin-dashboard .status-dot {
+  width: 8px;
+  height: 8px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #3ee58c;
+
+  box-shadow:
+    0 0 8px rgba(62, 229, 140, 0.8),
+    0 0 16px rgba(62, 229, 140, 0.3);
+}
+
+
+/* =========================================================
+   STAT BOXES
+   ========================================================= */
+
+.admin-dashboard .dashboard-stats {
+  width: 100%;
+  max-width: 1250px;
+
+  margin: 0 auto 45px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+
+.admin-dashboard .stat-box {
+  min-height: 82px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 18px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  transition: all 0.25s ease;
+}
+
+
+.admin-dashboard .stat-box:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(143, 130, 255, 0.35);
+
+  background: rgba(255, 255, 255, 0.055);
+}
+
+
+.admin-dashboard .stat-icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  background: rgba(143, 130, 255, 0.1);
+
+  font-size: 19px;
+}
+
+
+.admin-dashboard .stat-box div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.admin-dashboard .stat-box strong {
+  color: #ffffff !important;
+
+  font-size: 17px !important;
+  font-weight: 700 !important;
+
+  line-height: 1.2;
+}
+
+
+.admin-dashboard .stat-box div span {
+  color: #777780 !important;
+
+  font-size: 11px !important;
+
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.admin-dashboard .dashboard-section-title {
+  width: 100%;
+  max-width: 1250px;
+
+  margin: 0 auto 20px;
+}
+
+
+.admin-dashboard .dashboard-section-title span {
+  display: block;
+
+  color: #666671 !important;
+
+  font-size: 10px !important;
+  font-weight: 700 !important;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+.admin-dashboard .dashboard-section-title h2 {
+  margin: 6px 0 0 !important;
+  padding: 0 !important;
+
+  color: #ffffff !important;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif !important;
+
+  font-size: 23px !important;
+  font-weight: 600 !important;
+
+  line-height: 1.3 !important;
+}
+
+
+/* =========================================================
+   CARD GRID
+   ========================================================= */
+
+.admin-dashboard .admin-dashboard-grid {
+  width: 100%;
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.admin-dashboard .admin-card {
+  position: relative;
+
+  min-height: 205px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 22px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  border-radius: 18px !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.018)
+    ) !important;
+
+  color: #ffffff !important;
+
+  text-decoration: none !important;
+
+  box-shadow: none;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+
+/* Card glow */
+
+.admin-dashboard .admin-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 140px;
+  height: 140px;
+
+  top: -80px;
+  right: -80px;
+
+  border-radius: 50%;
+
+  background: rgba(143, 130, 255, 0.13);
+
+  filter: blur(25px);
+
+  transition: 0.3s ease;
+}
+
+
+/* Bottom purple line */
+
+.admin-dashboard .admin-card::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 2px;
+
+  background: #8f82ff;
+
+  transition: width 0.3s ease;
+}
+
+
+/* Hover */
+
+.admin-dashboard .admin-card:hover {
+  transform: translateY(-7px);
+
+  border-color: rgba(143, 130, 255, 0.38) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(143, 130, 255, 0.10),
+      rgba(255, 255, 255, 0.025)
+    ) !important;
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(143, 130, 255, 0.08);
+}
+
+
+.admin-dashboard .admin-card:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   CARD TOP
+   ========================================================= */
+
+.admin-dashboard .admin-card-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 22px;
+}
+
+
+.admin-dashboard .admin-card-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 13px;
+
+  background: rgba(143, 130, 255, 0.10);
+
+  font-size: 21px;
+
+  transition: transform 0.25s ease;
+}
+
+
+.admin-dashboard .admin-card:hover .admin-card-icon {
+  transform: scale(1.08);
+}
+
+
+.admin-dashboard .card-number {
+  color: #44444d !important;
+
+  font-size: 11px !important;
+  font-weight: 600 !important;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.admin-dashboard .admin-card-content {
+  flex: 1;
+}
+
+
+.admin-dashboard .admin-card-content h3 {
+  margin: 0 0 8px !important;
+  padding: 0 !important;
+
+  color: #ffffff !important;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif !important;
+
+  font-size: 18px !important;
+  font-weight: 600 !important;
+
+  line-height: 1.3 !important;
+}
+
+
+.admin-dashboard .admin-card-content p {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: #85858e !important;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif !important;
+
+  font-size: 13px !important;
+
+  line-height: 1.55 !important;
+}
+
+
+/* =========================================================
+   CARD FOOTER
+   ========================================================= */
+
+.admin-dashboard .admin-card-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 20px;
+
+  color: #92929b !important;
+
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+
+.admin-dashboard .admin-card-arrow {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+
+  color: #ffffff !important;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+
+.admin-dashboard .admin-card:hover .admin-card-arrow {
+  transform: translateX(4px);
+
+  background: rgba(143, 130, 255, 0.18);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .admin-dashboard {
+    padding: 40px 30px 60px;
+  }
+
+  .admin-dashboard .admin-dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .admin-dashboard {
+    padding: 30px 18px 50px;
+  }
+
+  .admin-dashboard .dashboard-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .admin-dashboard .dashboard-header h1 {
+    font-size: 38px !important;
+  }
+
+  .admin-dashboard .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-dashboard .admin-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 400px) {
+
+  .admin-dashboard {
+    padding: 25px 14px 40px;
+  }
+
+  .admin-dashboard .dashboard-header h1 {
+    font-size: 32px !important;
+  }
+
+}

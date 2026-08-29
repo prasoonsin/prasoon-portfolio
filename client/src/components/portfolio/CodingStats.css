@@ -1,0 +1,35 @@
+.coding-stats {
+  padding: 120px 8%;
+  background: #080808;
+}
+
+.coding-stats-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.coding-stats-intro {
+  max-width: 650px;
+  color: #8f8f8f;
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 50px;
+}
+
+.coding-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+  .coding-stats {
+    padding: 90px 6%;
+  }
+
+  .coding-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

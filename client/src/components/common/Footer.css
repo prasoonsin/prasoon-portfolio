@@ -1,0 +1,119 @@
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+  padding: 35px 8%;
+
+  background: #080808;
+
+  border-top: 1px solid #202020;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footer-brand {
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  letter-spacing: 0.3px;
+}
+
+.footer-brand span {
+  color: #63d5ff;
+}
+
+
+/* =========================================================
+   FOOTER TEXT
+========================================================= */
+
+.footer-text {
+  margin: 0;
+
+  color: #777777;
+
+  font-size: 13px;
+  text-align: center;
+}
+
+.footer-copyright {
+  margin: 0;
+
+  color: #666666;
+
+  font-size: 12px;
+  text-align: right;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.footer-brand:hover {
+  color: #63d5ff;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .footer {
+    padding: 30px 6%;
+  }
+
+  .footer-container {
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: 12px;
+  }
+
+  .footer-text,
+  .footer-copyright {
+    text-align: center;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .footer {
+    padding: 28px 5%;
+  }
+
+  .footer-brand {
+    font-size: 17px;
+  }
+
+  .footer-text {
+    font-size: 12px;
+  }
+
+  .footer-copyright {
+    font-size: 11px;
+  }
+
+}

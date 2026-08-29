@@ -1,0 +1,303 @@
+/* =====================================================
+   EDUCATION ADMIN PAGE
+   ===================================================== */
+
+.education-admin-page {
+  width: 100%;
+}
+
+
+/* =====================================================
+   HEADER ACTIONS
+   ===================================================== */
+
+.education-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+
+/* =====================================================
+   TABLE
+   ===================================================== */
+
+.education-admin-page .admin-table-wrapper {
+  overflow-x: auto;
+  margin-top: 28px;
+}
+
+
+.education-admin-page .admin-table {
+  min-width: 1050px;
+}
+
+
+/* =====================================================
+   ACTION BUTTONS
+   ===================================================== */
+
+.education-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+
+.education-edit-button,
+.education-delete-button {
+  border: none;
+  border-radius: 8px;
+  padding: 9px 15px;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+.education-edit-button {
+  background: #7c8ff5;
+  color: white;
+}
+
+
+.education-edit-button:hover {
+  background: #667bf0;
+  transform: translateY(-1px);
+}
+
+
+.education-delete-button {
+  background: rgba(180, 55, 55, 0.12);
+  color: #ff8b8b;
+  border: 1px solid rgba(220, 80, 80, 0.25);
+}
+
+
+.education-delete-button:hover {
+  background: rgba(200, 60, 60, 0.22);
+  color: #ffaaaa;
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   FORM PAGE
+   ===================================================== */
+
+.education-form-page {
+  width: 100%;
+}
+
+
+/* =====================================================
+   FORM CARD
+   ===================================================== */
+
+.education-form-card {
+  width: min(100%, 1000px);
+  margin-top: 40px;
+  padding: 38px;
+  background: #1d1f24;
+  border: 1px solid #30333a;
+  border-radius: 18px;
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   ERROR
+   ===================================================== */
+
+.education-form-error {
+  margin-bottom: 28px;
+  padding: 15px 18px;
+  border-radius: 10px;
+  background: rgba(180, 55, 55, 0.12);
+  border: 1px solid rgba(220, 80, 80, 0.35);
+  color: #ff9696;
+  font-size: 15px;
+}
+
+
+/* =====================================================
+   FORM GROUP
+   ===================================================== */
+
+.education-form-group {
+  margin-bottom: 30px;
+}
+
+
+.education-form-group label {
+  display: block;
+  margin-bottom: 11px;
+  color: #dedfe4;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+.education-form-group label span {
+  color: #ff8888;
+}
+
+
+/* =====================================================
+   INPUTS
+   ===================================================== */
+
+.education-form-group input,
+.education-form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 15px 16px;
+
+  background: #1b1d22;
+  color: #f3f3f3;
+
+  border: 1px solid #383b43;
+  border-radius: 10px;
+
+  outline: none;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.education-form-group input {
+  height: 52px;
+}
+
+
+.education-form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+  line-height: 1.6;
+}
+
+
+.education-form-group input:focus,
+.education-form-group textarea:focus {
+  border-color: #7c8ff5;
+  box-shadow: 0 0 0 3px rgba(124, 143, 245, 0.12);
+}
+
+
+/* =====================================================
+   DATE INPUT
+   ===================================================== */
+
+.education-form-group input[type="date"] {
+  color-scheme: dark;
+}
+
+
+/* =====================================================
+   PLACEHOLDER
+   ===================================================== */
+
+.education-form-group input::placeholder,
+.education-form-group textarea::placeholder {
+  color: #777b84;
+}
+
+
+/* =====================================================
+   HELP TEXT
+   ===================================================== */
+
+.education-form-group small {
+  display: block;
+  margin-top: 8px;
+  color: #777b84;
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   TWO COLUMN DATE GRID
+   ===================================================== */
+
+.education-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+
+/* =====================================================
+   FORM ACTIONS
+   ===================================================== */
+
+.education-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+
+  padding-top: 10px;
+  margin-top: 10px;
+
+  border-top: 1px solid #30333a;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+  .education-header-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+
+  .education-header-actions button {
+    width: 100%;
+  }
+
+
+  .education-form-card {
+    padding: 24px;
+  }
+
+
+  .education-form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+
+  .education-form-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+
+  .education-form-actions button {
+    width: 100%;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .education-form-card {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+}

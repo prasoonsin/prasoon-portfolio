@@ -1,0 +1,296 @@
+/* =====================================================
+   EDUCATION FORM PAGE
+   ===================================================== */
+
+.education-form-page {
+  width: 100%;
+}
+
+
+/* =====================================================
+   FORM CONTAINER
+   ===================================================== */
+
+.education-form {
+  width: 100%;
+  max-width: 1000px;
+
+  margin-top: 35px;
+
+  padding: 34px;
+
+  background: #1d1f24;
+
+  border: 1px solid #30333a;
+
+  border-radius: 16px;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   ERROR
+   ===================================================== */
+
+.education-form-error {
+  margin-bottom: 25px;
+
+  padding: 14px 18px;
+
+  border-radius: 9px;
+
+  border: 1px solid rgba(239, 93, 93, 0.35);
+
+  background: rgba(239, 93, 93, 0.08);
+
+  color: #ef8585;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   FORM GROUP
+   ===================================================== */
+
+.education-form-group {
+  margin-bottom: 28px;
+}
+
+.education-form-group label {
+  display: block;
+
+  margin-bottom: 11px;
+
+  color: #d8d9df;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+.education-form-group label span {
+  color: #ef7777;
+}
+
+
+/* =====================================================
+   INPUTS
+   ===================================================== */
+
+.education-form-group input,
+.education-form-group textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 15px 16px;
+
+  border: 1px solid #373a42;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #202227;
+
+  color: #eeeeef;
+
+  font-family: inherit;
+
+  font-size: 15px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.education-form-group input {
+  height: 52px;
+}
+
+
+.education-form-group textarea {
+  min-height: 150px;
+
+  resize: vertical;
+
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   FOCUS
+   ===================================================== */
+
+.education-form-group input:focus,
+.education-form-group textarea:focus {
+  border-color: #7489ed;
+
+  background: #22252b;
+
+  box-shadow:
+    0 0 0 3px rgba(116, 137, 237, 0.1);
+}
+
+
+/* =====================================================
+   PLACEHOLDER
+   ===================================================== */
+
+.education-form-group input::placeholder,
+.education-form-group textarea::placeholder {
+  color: #666a73;
+}
+
+
+/* =====================================================
+   DATE INPUT
+   ===================================================== */
+
+.education-form-group input[type="date"] {
+  color-scheme: dark;
+}
+
+
+/* =====================================================
+   HELP TEXT
+   ===================================================== */
+
+.education-form-group small {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #777b84;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   TWO COLUMN ROW
+   ===================================================== */
+
+.education-form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 24px;
+}
+
+
+/* =====================================================
+   FORM ACTIONS
+   ===================================================== */
+
+.education-form-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding-top: 10px;
+
+  border-top: 1px solid #30333a;
+}
+
+
+/* =====================================================
+   CANCEL
+   ===================================================== */
+
+.education-cancel-button {
+  height: 46px;
+
+  padding: 0 22px;
+
+  border: 1px solid #3b3e46;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #a9acb5;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.education-cancel-button:hover {
+  background: #27292f;
+
+  color: #ffffff;
+
+  border-color: #50545e;
+}
+
+
+/* =====================================================
+   SAVE / UPDATE BUTTON
+   ===================================================== */
+
+.education-form-actions
+.admin-primary-button {
+  min-width: 160px;
+
+  height: 46px;
+}
+
+
+/* =====================================================
+   DISABLED
+   ===================================================== */
+
+.education-form button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+  .education-form {
+    padding: 22px;
+  }
+
+  .education-form-row {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .education-form-actions {
+    flex-direction: column-reverse;
+
+    align-items: stretch;
+  }
+
+  .education-form-actions button {
+    width: 100%;
+  }
+
+}

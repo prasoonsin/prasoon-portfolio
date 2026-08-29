@@ -1,0 +1,580 @@
+/* =====================================================
+   PAGE
+   ===================================================== */
+
+.admin-certifications-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.admin-certifications-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.admin-certifications-label {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #777;
+}
+
+.admin-certifications-header h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  color: #111;
+}
+
+.admin-certifications-header p {
+  margin: 10px 0 0;
+  color: #777;
+  font-size: 15px;
+}
+
+
+/* =====================================================
+   SECONDARY BUTTON
+   ===================================================== */
+
+.admin-certifications-secondary-button {
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #111;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.admin-certifications-secondary-button:hover {
+  border-color: #111;
+  background: #f8f8f8;
+}
+
+
+/* =====================================================
+   ALERTS
+   ===================================================== */
+
+.admin-certifications-alert {
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.admin-certifications-success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+.admin-certifications-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+}
+
+
+/* =====================================================
+   FORM CARD
+   ===================================================== */
+
+.admin-certifications-form-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+.admin-certifications-form-header {
+  margin-bottom: 28px;
+}
+
+.admin-certifications-form-header h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #111;
+}
+
+.admin-certifications-form-header p {
+  margin: 7px 0 0;
+  color: #777;
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   FORM
+   ===================================================== */
+
+.admin-certifications-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.admin-certifications-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-certifications-form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+}
+
+.admin-certifications-form-group input,
+.admin-certifications-form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  color: #111;
+  padding: 13px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.admin-certifications-form-group input {
+  height: 46px;
+}
+
+.admin-certifications-form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+  line-height: 1.6;
+}
+
+.admin-certifications-form-group input:focus,
+.admin-certifications-form-group textarea:focus {
+  border-color: #111;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.admin-certifications-form-group input::placeholder,
+.admin-certifications-form-group textarea::placeholder {
+  color: #aaa;
+}
+
+
+/* =====================================================
+   FORM ROW
+   ===================================================== */
+
+.admin-certifications-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+
+/* =====================================================
+   FORM ACTIONS
+   ===================================================== */
+
+.admin-certifications-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.admin-certifications-primary-button,
+.admin-certifications-cancel-button {
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.admin-certifications-primary-button {
+  border: 1px solid #111;
+  background: #111;
+  color: #fff;
+}
+
+.admin-certifications-primary-button:hover {
+  background: #333;
+  border-color: #333;
+}
+
+.admin-certifications-cancel-button {
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #555;
+}
+
+.admin-certifications-cancel-button:hover {
+  border-color: #bbb;
+  color: #111;
+}
+
+
+/* =====================================================
+   LIST SECTION
+   ===================================================== */
+
+.admin-certifications-list-section {
+  width: 100%;
+}
+
+.admin-certifications-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.admin-certifications-list-header h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #111;
+}
+
+.admin-certifications-list-header p {
+  margin: 6px 0 0;
+  color: #777;
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   GRID
+   ===================================================== */
+
+.admin-certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+
+/* =====================================================
+   CARD
+   ===================================================== */
+
+.admin-certification-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  padding: 24px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.035);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.admin-certification-card:hover {
+  transform: translateY(-2px);
+  border-color: #d5d5d5;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+
+/* =====================================================
+   CARD TOP
+   ===================================================== */
+
+.admin-certification-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.admin-certification-icon {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #f5f5f5;
+  font-size: 21px;
+}
+
+.admin-certification-title {
+  min-width: 0;
+}
+
+.admin-certification-title h3 {
+  margin: 0;
+  color: #111;
+  font-size: 18px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.admin-certification-title span {
+  display: block;
+  margin-top: 5px;
+  color: #777;
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   DATE
+   ===================================================== */
+
+.admin-certification-date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  color: #555;
+  font-size: 13px;
+}
+
+.admin-certification-date span {
+  color: #aaa;
+}
+
+
+/* =====================================================
+   CREDENTIAL
+   ===================================================== */
+
+.admin-certification-credential {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #f8f8f8;
+}
+
+.admin-certification-credential span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #888;
+  font-weight: 600;
+}
+
+.admin-certification-credential strong {
+  color: #333;
+  font-size: 13px;
+  word-break: break-all;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+   ===================================================== */
+
+.admin-certification-description {
+  margin: 18px 0 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   CREDENTIAL LINK
+   ===================================================== */
+
+.admin-certification-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: #111;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.admin-certification-link:hover {
+  text-decoration: underline;
+}
+
+
+/* =====================================================
+   CARD ACTIONS
+   ===================================================== */
+
+.admin-certification-card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #eee;
+}
+
+.admin-certification-edit-button,
+.admin-certification-delete-button {
+  padding: 9px 15px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.admin-certification-edit-button {
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #333;
+}
+
+.admin-certification-edit-button:hover {
+  border-color: #111;
+  color: #111;
+}
+
+.admin-certification-delete-button {
+  border: 1px solid #f0caca;
+  background: #fff;
+  color: #c62828;
+}
+
+.admin-certification-delete-button:hover {
+  background: #fff5f5;
+  border-color: #e5a0a0;
+}
+
+
+/* =====================================================
+   EMPTY STATE
+   ===================================================== */
+
+.admin-certifications-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  padding: 30px;
+  border: 1px dashed #ddd;
+  border-radius: 14px;
+  text-align: center;
+  background: #fff;
+}
+
+.admin-certifications-empty-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  font-size: 27px;
+}
+
+.admin-certifications-empty-state h3 {
+  margin: 0;
+  color: #222;
+  font-size: 17px;
+}
+
+.admin-certifications-empty-state p {
+  max-width: 400px;
+  margin: 8px 0 0;
+  color: #888;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 900px) {
+  .admin-certifications-page {
+    padding: 30px 24px;
+  }
+
+  .admin-certifications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .admin-certifications-page {
+    padding: 24px 16px;
+  }
+
+  .admin-certifications-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-certifications-header h1 {
+    font-size: 30px;
+  }
+
+  .admin-certifications-form-card {
+    padding: 22px;
+  }
+
+  .admin-certifications-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-certifications-form-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .admin-certifications-primary-button,
+  .admin-certifications-cancel-button {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 450px) {
+  .admin-certification-card {
+    padding: 18px;
+  }
+
+  .admin-certification-card-top {
+    gap: 10px;
+  }
+
+  .admin-certification-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .admin-certification-title h3 {
+    font-size: 16px;
+  }
+}

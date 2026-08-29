@@ -1,0 +1,711 @@
+/* =====================================================
+   ADMIN EXPERIENCE PAGE
+   ===================================================== */
+
+.admin-experience-page {
+  min-height: 100vh;
+
+  padding: 50px 55px 80px;
+
+  background:
+    radial-gradient(
+      circle at 85% 0%,
+      rgba(124, 92, 255, 0.14),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 5% 100%,
+      rgba(40, 150, 255, 0.08),
+      transparent 28%
+    ),
+    #08080a;
+
+  color: #ffffff;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.admin-experience-header {
+  width: 100%;
+  max-width: 1250px;
+
+  margin: 0 auto 35px;
+
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+.admin-page-label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #8f82ff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.admin-experience-header h1 {
+  margin: 0;
+
+  font-size: 48px;
+  font-weight: 700;
+
+  letter-spacing: -1.5px;
+}
+
+.admin-experience-header p {
+  margin: 13px 0 0;
+
+  color: #85858f;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   ALERTS
+   ===================================================== */
+
+.admin-alert {
+  width: 100%;
+  max-width: 1250px;
+
+  box-sizing: border-box;
+
+  margin: 0 auto 20px;
+
+  padding: 14px 18px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+}
+
+.admin-alert-success {
+  border: 1px solid rgba(62, 229, 140, 0.25);
+
+  background: rgba(62, 229, 140, 0.08);
+
+  color: #72f0aa;
+}
+
+.admin-alert-error {
+  border: 1px solid rgba(255, 90, 90, 0.25);
+
+  background: rgba(255, 90, 90, 0.08);
+
+  color: #ff8585;
+}
+
+
+/* =====================================================
+   FORM CARD
+   ===================================================== */
+
+.admin-experience-form-card {
+  width: 100%;
+  max-width: 1250px;
+
+  margin: 0 auto 45px;
+
+  overflow: hidden;
+
+  border: 1px solid #20242b;
+
+  border-radius: 16px;
+
+  background: #0d1117;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.admin-form-header {
+  padding: 24px 28px;
+
+  border-bottom: 1px solid #20242b;
+}
+
+.admin-form-header h2 {
+  margin: 0;
+
+  color: #e6edf3;
+
+  font-size: 21px;
+}
+
+.admin-form-header p {
+  margin: 7px 0 0;
+
+  color: #8b949e;
+
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   FORM
+   ===================================================== */
+
+.admin-experience-form {
+  padding: 28px;
+}
+
+.admin-form-group {
+  margin-bottom: 22px;
+}
+
+.admin-form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #c9d1d9;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-form-group input,
+.admin-form-group textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px 14px;
+
+  border: 1px solid #30363d;
+  border-radius: 9px;
+
+  outline: none;
+
+  background: #080b0f;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-form-group input {
+  height: 46px;
+}
+
+.admin-form-group textarea {
+  resize: vertical;
+
+  min-height: 140px;
+
+  line-height: 1.6;
+}
+
+.admin-form-group input::placeholder,
+.admin-form-group textarea::placeholder {
+  color: #545b65;
+}
+
+.admin-form-group input:focus,
+.admin-form-group textarea:focus {
+  border-color: #8f82ff;
+
+  box-shadow:
+    0 0 0 3px rgba(143, 130, 255, 0.1);
+}
+
+.admin-form-group input:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.45;
+}
+
+
+/* =====================================================
+   FORM ROW
+   ===================================================== */
+
+.admin-form-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =====================================================
+   CHECKBOX
+   ===================================================== */
+
+.admin-checkbox {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin: 3px 0 24px;
+
+  color: #c9d1d9;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+.admin-checkbox input {
+  width: 17px;
+  height: 17px;
+
+  margin: 0;
+
+  accent-color: #8f82ff;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+
+.admin-form-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding-top: 8px;
+}
+
+.admin-primary-button,
+.admin-secondary-button,
+.admin-cancel-button,
+.admin-edit-button,
+.admin-delete-button {
+  border: none;
+
+  border-radius: 8px;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+.admin-primary-button {
+  padding: 12px 20px;
+
+  background: #8f82ff;
+
+  color: #ffffff;
+}
+
+.admin-primary-button:hover {
+  transform: translateY(-1px);
+
+  background: #a096ff;
+}
+
+.admin-secondary-button {
+  padding: 11px 17px;
+
+  border: 1px solid #30363d;
+
+  background: #11161d;
+
+  color: #c9d1d9;
+}
+
+.admin-secondary-button:hover {
+  background: #181e26;
+}
+
+.admin-cancel-button {
+  padding: 12px 20px;
+
+  border: 1px solid #30363d;
+
+  background: transparent;
+
+  color: #8b949e;
+}
+
+.admin-cancel-button:hover {
+  background: #151a20;
+
+  color: #ffffff;
+}
+
+.admin-primary-button:disabled,
+.admin-cancel-button:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.5;
+}
+
+
+/* =====================================================
+   LIST HEADER
+   ===================================================== */
+
+.admin-experience-list-section {
+  width: 100%;
+  max-width: 1250px;
+
+  margin: 0 auto;
+}
+
+.admin-list-header {
+  margin-bottom: 22px;
+}
+
+.admin-list-header h2 {
+  margin: 0;
+
+  color: #e6edf3;
+
+  font-size: 25px;
+}
+
+.admin-list-header p {
+  margin: 6px 0 0;
+
+  color: #8b949e;
+
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   EXPERIENCE GRID
+   ===================================================== */
+
+.admin-experience-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =====================================================
+   EXPERIENCE CARD
+   ===================================================== */
+
+.admin-experience-card {
+  padding: 24px;
+
+  border: 1px solid #20242b;
+
+  border-radius: 14px;
+
+  background: #0d1117;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.admin-experience-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #343b45;
+}
+
+.admin-experience-card-top {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.admin-experience-company {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #8f82ff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.admin-experience-card h3 {
+  margin: 0;
+
+  color: #e6edf3;
+
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.admin-current-badge {
+  flex-shrink: 0;
+
+  padding: 5px 9px;
+
+  border: 1px solid rgba(62, 229, 140, 0.25);
+
+  border-radius: 20px;
+
+  background: rgba(62, 229, 140, 0.08);
+
+  color: #72f0aa;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   DATE
+   ===================================================== */
+
+.admin-experience-date {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 16px;
+
+  color: #8b949e;
+
+  font-size: 12px;
+}
+
+.admin-experience-date span {
+  color: #545b65;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+   ===================================================== */
+
+.admin-experience-description {
+  margin: 18px 0 0;
+
+  color: #8b949e;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+/* =====================================================
+   CARD ACTIONS
+   ===================================================== */
+
+.admin-card-actions {
+  display: flex;
+
+  gap: 9px;
+
+  margin-top: 22px;
+
+  padding-top: 16px;
+
+  border-top: 1px solid #20242b;
+}
+
+.admin-edit-button {
+  padding: 8px 14px;
+
+  background: rgba(143, 130, 255, 0.1);
+
+  color: #a69cff;
+}
+
+.admin-edit-button:hover {
+  background: rgba(143, 130, 255, 0.18);
+}
+
+.admin-delete-button {
+  padding: 8px 14px;
+
+  background: rgba(255, 90, 90, 0.08);
+
+  color: #ff8585;
+}
+
+.admin-delete-button:hover {
+  background: rgba(255, 90, 90, 0.15);
+}
+
+
+/* =====================================================
+   EMPTY / LOADING
+   ===================================================== */
+
+.admin-empty-state {
+  min-height: 280px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  border: 1px dashed #30363d;
+
+  border-radius: 14px;
+
+  background: #0d1117;
+}
+
+.admin-empty-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 16px;
+
+  border-radius: 12px;
+
+  background: rgba(100, 255, 218, 0.08);
+
+  font-size: 26px;
+}
+
+.admin-empty-state h3 {
+  margin: 0 0 8px;
+
+  color: #e6edf3;
+
+  font-size: 20px;
+}
+
+.admin-empty-state p {
+  margin: 0;
+
+  color: #8b949e;
+
+  font-size: 14px;
+}
+
+.admin-spinner {
+  width: 28px;
+  height: 28px;
+
+  margin-bottom: 14px;
+
+  border: 3px solid #30363d;
+
+  border-top-color: #64ffda;
+
+  border-radius: 50%;
+
+  animation: admin-experience-spin 0.8s linear infinite;
+}
+
+@keyframes admin-experience-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 900px) {
+  .admin-experience-page {
+    padding: 40px 30px 60px;
+  }
+
+  .admin-experience-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .admin-experience-page {
+    padding: 30px 18px 50px;
+  }
+
+  .admin-experience-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .admin-experience-header h1 {
+    font-size: 38px;
+  }
+
+  .admin-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .admin-form-actions button {
+    width: 100%;
+  }
+
+  .admin-secondary-button {
+    width: 100%;
+  }
+}

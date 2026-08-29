@@ -1,0 +1,617 @@
+/* =========================================
+   COMMON CSS — 8 PORTFOLIO PAGES
+   Blog
+   Certifications
+   CodingStats
+   Contact
+   Education
+   Experience
+   Projects
+   Skills
+========================================= */
+
+
+/* =========================
+   COMMON SECTION
+========================= */
+
+.page-section {
+  width: 100%;
+  padding: 100px 0;
+}
+
+.page-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* =========================
+   COMMON HEADING
+========================= */
+
+.section-heading,
+.experience-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.section-heading span,
+.experience-heading span {
+  color: #64ffda;
+  font-family: monospace;
+  font-size: 18px;
+}
+
+.section-heading h2,
+.experience-heading h2 {
+  color: #ccd6f6;
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.section-heading::after,
+.experience-heading::after {
+  content: "";
+  height: 1px;
+  width: 250px;
+  background: #233554;
+  margin-left: 10px;
+}
+
+
+/* =========================
+   COMMON INTRO TEXT
+========================= */
+
+.section-intro,
+.projects-intro,
+.skills-intro,
+.certifications-intro {
+  max-width: 700px;
+  color: #8892b0;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+
+/* =========================
+   COMMON MESSAGE
+========================= */
+
+.section-message {
+  color: #8892b0;
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+
+/* =========================
+   COMMON CARD
+========================= */
+
+.common-card,
+.education-card,
+.experience-card,
+.certification-card,
+.skill-category {
+  background: #112240;
+  border: 1px solid #233554;
+  border-radius: 8px;
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.education-card:hover,
+.experience-card:hover,
+.certification-card:hover,
+.skill-category:hover {
+  border-color: #64ffda;
+  transform: translateY(-4px);
+}
+
+
+/* =========================
+   EDUCATION
+========================= */
+
+.education {
+  width: 100%;
+  padding: 100px 0;
+}
+
+.education-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.education-card h3 {
+  color: #ccd6f6;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.education-card h4 {
+  color: #64ffda;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.education-duration {
+  color: #8892b0;
+  font-family: monospace;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.education-description {
+  color: #8892b0;
+  margin-top: 15px;
+}
+
+.education-grade {
+  color: #8892b0;
+  margin-top: 10px;
+}
+
+.education-grade strong {
+  color: #ccd6f6;
+}
+
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.experience-section {
+  width: 100%;
+  padding: 100px 0;
+}
+
+.experience-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.experience-card {
+  width: 100%;
+}
+
+.experience-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.experience-top h3 {
+  color: #ccd6f6;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.experience-top h4 {
+  color: #64ffda;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.experience-date {
+  color: #8892b0;
+  font-family: monospace;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.experience-intro {
+  color: #8892b0;
+  margin-top: 15px;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills {
+  width: 100%;
+  padding: 100px 0;
+}
+
+.skills-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.skill-category-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.skill-number {
+  color: #64ffda;
+  font-family: monospace;
+}
+
+.skill-category-header h3 {
+  color: #ccd6f6;
+  font-size: 20px;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-item {
+  color: #8892b0;
+  border: 1px solid #233554;
+  border-radius: 4px;
+  padding: 7px 12px;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.skill-item:hover {
+  color: #64ffda;
+  border-color: #64ffda;
+}
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects {
+  width: 100%;
+  padding: 100px 0;
+}
+
+.projects-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+
+/* =========================
+   CERTIFICATIONS
+========================= */
+
+.certifications {
+  width: 100%;
+  padding: 100px 0;
+}
+
+.certifications-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.certification-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.certificate-icon {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #64ffda;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #64ffda;
+}
+
+.certificate-date {
+  color: #8892b0;
+  font-family: monospace;
+}
+
+.certification-card h3 {
+  color: #ccd6f6;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.certificate-issuer {
+  color: #64ffda;
+}
+
+.certificate-description {
+  color: #8892b0;
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+.certificate-link {
+  display: inline-block;
+  color: #64ffda;
+  margin-top: 20px;
+  transition: 0.2s ease;
+}
+
+.certificate-link:hover {
+  color: #ccd6f6;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+  width: 100%;
+  padding: 100px 0;
+}
+
+.contact-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+}
+
+.contact-info h3 {
+  color: #ccd6f6;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.contact-info > p {
+  color: #8892b0;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-details a {
+  color: #64ffda;
+  width: fit-content;
+  transition: 0.2s ease;
+}
+
+.contact-details a:hover {
+  color: #ccd6f6;
+}
+
+
+/* CONTACT FORM */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: #ccd6f6;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  background: #112240;
+  color: #ccd6f6;
+  border: 1px solid #233554;
+  border-radius: 5px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #64ffda;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  width: fit-content;
+  padding: 12px 22px;
+  background: transparent;
+  color: #64ffda;
+  border: 1px solid #64ffda;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: rgba(100, 255, 218, 0.1);
+}
+
+.contact-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact-status {
+  color: #64ffda;
+}
+
+
+/* =========================
+   BLOG
+========================= */
+
+.blog {
+  width: 100%;
+  padding: 100px 0;
+}
+
+.blog-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* =========================
+   CODING STATS
+========================= */
+
+.coding-stats {
+  width: 100%;
+  padding: 100px 0;
+}
+
+.coding-stats-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .page-section,
+  .education,
+  .experience-section,
+  .skills,
+  .projects,
+  .certifications,
+  .contact,
+  .blog,
+  .coding-stats {
+    padding: 70px 0;
+  }
+
+  .section-heading h2,
+  .experience-heading h2 {
+    font-size: 26px;
+  }
+
+  .section-heading::after,
+  .experience-heading::after {
+    width: 80px;
+  }
+
+  .skills-grid,
+  .projects-grid,
+  .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .experience-top {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .experience-date {
+    white-space: normal;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .section-heading h2,
+  .experience-heading h2 {
+    font-size: 23px;
+  }
+
+  .section-heading span,
+  .experience-heading span {
+    font-size: 14px;
+  }
+
+  .section-heading::after,
+  .experience-heading::after {
+    width: 40px;
+  }
+
+  .page-section,
+  .education,
+  .experience-section,
+  .skills,
+  .projects,
+  .certifications,
+  .contact,
+  .blog,
+  .coding-stats {
+    padding: 55px 0;
+  }
+
+  .education-card,
+  .experience-card,
+  .certification-card,
+  .skill-category {
+    padding: 20px;
+  }
+}
