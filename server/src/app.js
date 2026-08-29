@@ -7,6 +7,13 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
+app.use(cors({
+    origin: [
+        "http://localhost:5173",
+        "https://prasoon-portfolio-1-r7oe.onrender.com"
+    ],
+    credentials: true
+}));
 
 // ========================================
 // Security
