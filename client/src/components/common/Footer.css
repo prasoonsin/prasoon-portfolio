@@ -3,18 +3,185 @@
 ========================================================= */
 
 .footer {
-  padding: 35px 8%;
+  position: relative;
 
-  background: #080808;
+  padding: 70px 8% 28px;
 
-  border-top: 1px solid #202020;
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(99, 213, 255, 0.035),
+      transparent 30%
+    ),
+    #090909;
+
+  border-top: 1px solid #1f1f1f;
+
+  overflow: hidden;
 }
 
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
 
+/* =========================================================
+   TOP ACCENT
+========================================================= */
+
+.footer::before {
+  content: "";
+
+  position: absolute;
+
+  top: -1px;
+  left: 8%;
+
+  width: 70px;
+  height: 1px;
+
+  background: #63d5ff;
+
+  box-shadow:
+    0 0 18px rgba(99, 213, 255, 0.25);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.footer-container {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   TOP SECTION
+========================================================= */
+
+.footer-top {
   display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footer-brand h3 {
+  margin: 0 0 9px;
+
+  color: #ffffff;
+
+  font-size: 24px;
+  font-weight: 650;
+
+  letter-spacing: -0.02em;
+
+  transition:
+    color 0.25s ease;
+}
+
+.footer-brand h3 span {
+  color: #63d5ff;
+}
+
+.footer-brand h3:hover {
+  color: #63d5ff;
+}
+
+.footer-brand p {
+  margin: 0;
+
+  color: #686868;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   SOCIAL LINKS
+========================================================= */
+
+.footer-socials {
+  display: flex;
+
+  align-items: center;
+
+  gap: 26px;
+
+  padding-top: 5px;
+}
+
+.footer-socials a {
+  position: relative;
+
+  color: #777777;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease;
+}
+
+.footer-socials a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0;
+  height: 1px;
+
+  background: #63d5ff;
+
+  transition:
+    width 0.25s ease;
+}
+
+.footer-socials a:hover {
+  color: #63d5ff;
+}
+
+.footer-socials a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.footer-divider {
+  width: 100%;
+
+  height: 1px;
+
+  margin: 42px 0 24px;
+
+  background: #1d1d1d;
+}
+
+
+/* =========================================================
+   BOTTOM SECTION
+========================================================= */
+
+.footer-bottom {
+  display: flex;
+
   align-items: center;
   justify-content: space-between;
 
@@ -23,52 +190,39 @@
 
 
 /* =========================================================
-   BRAND
+   COPYRIGHT
 ========================================================= */
 
-.footer-brand {
-  color: #ffffff;
+.footer-copyright {
+  margin: 0;
 
-  font-size: 18px;
-  font-weight: 600;
+  color: #505050;
 
-  letter-spacing: 0.3px;
-}
+  font-size: 11px;
 
-.footer-brand span {
-  color: #63d5ff;
+  line-height: 1.6;
 }
 
 
 /* =========================================================
-   FOOTER TEXT
+   TECH STACK
 ========================================================= */
 
 .footer-text {
   margin: 0;
 
-  color: #777777;
+  color: #505050;
 
-  font-size: 13px;
-  text-align: center;
-}
+  font-size: 11px;
 
-.footer-copyright {
-  margin: 0;
-
-  color: #666666;
-
-  font-size: 12px;
   text-align: right;
+
+  transition:
+    color 0.25s ease;
 }
 
-
-/* =========================================================
-   HOVER
-========================================================= */
-
-.footer-brand:hover {
-  color: #63d5ff;
+.footer-text:hover {
+  color: #777777;
 }
 
 
@@ -79,41 +233,83 @@
 @media (max-width: 800px) {
 
   .footer {
-    padding: 30px 6%;
+    padding: 60px 6% 25px;
   }
 
-  .footer-container {
+  .footer::before {
+    left: 6%;
+  }
+
+  .footer-top {
     flex-direction: column;
 
-    text-align: center;
-
-    gap: 12px;
+    gap: 28px;
   }
 
-  .footer-text,
-  .footer-copyright {
-    text-align: center;
+  .footer-socials {
+    padding-top: 0;
+
+    gap: 22px;
+  }
+
+  .footer-divider {
+    margin: 35px 0 20px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 8px;
+  }
+
+  .footer-text {
+    text-align: left;
   }
 
 }
 
 
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media (max-width: 500px) {
 
   .footer {
-    padding: 28px 5%;
+    padding: 50px 5% 24px;
   }
 
-  .footer-brand {
-    font-size: 17px;
+  .footer::before {
+    left: 5%;
   }
 
-  .footer-text {
+  .footer-brand h3 {
+    font-size: 22px;
+  }
+
+  .footer-brand p {
     font-size: 12px;
   }
 
-  .footer-copyright {
-    font-size: 11px;
+  .footer-socials {
+    flex-wrap: wrap;
+
+    gap: 16px 20px;
+  }
+
+  .footer-socials a {
+    font-size: 12px;
+  }
+
+  .footer-divider {
+    margin: 32px 0 18px;
+  }
+
+  .footer-copyright,
+  .footer-text {
+    font-size: 10px;
   }
 
 }
