@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCodingStats } from "../../services/api";
+import "./LeetCodeStats.css";
 
 function LeetCodeStats() {
   const [stats, setStats] = useState(null);
@@ -24,9 +25,7 @@ function LeetCodeStats() {
         );
 
         if (!leetCode) {
-          throw new Error(
-            "LeetCode profile not found"
-          );
+          throw new Error("LeetCode profile not found");
         }
 
         setStats(leetCode);
@@ -50,12 +49,11 @@ function LeetCodeStats() {
   return (
     <div className="leetcode-stats-card">
 
-      {/* Header */}
+      {/* ================= HEADER ================= */}
 
       <div className="stats-header">
 
         <div>
-
           <span className="stats-label">
             LEETCODE
           </span>
@@ -63,7 +61,6 @@ function LeetCodeStats() {
           <h3>
             Problem Solving
           </h3>
-
         </div>
 
         <a
@@ -77,7 +74,7 @@ function LeetCodeStats() {
       </div>
 
 
-      {/* Loading */}
+      {/* ================= LOADING ================= */}
 
       {loading && (
         <div className="leetcode-note">
@@ -86,7 +83,7 @@ function LeetCodeStats() {
       )}
 
 
-      {/* Error */}
+      {/* ================= ERROR ================= */}
 
       {!loading && error && (
         <div className="leetcode-note">
@@ -95,28 +92,81 @@ function LeetCodeStats() {
       )}
 
 
-      {/* Statistics */}
+      {/* ================= STATISTICS ================= */}
 
       {!loading && !error && stats && (
         <>
-          <div className="leetcode-stats">
+          {/* TOTAL SOLVED */}
 
-            {/* Problems Solved */}
+          <div className="leetcode-total">
 
-            <div className="leetcode-stat">
+            <span>
+              Problems Solved
+            </span>
+
+            <strong>
+              {stats.problems_solved ?? 0}
+            </strong>
+
+          </div>
+
+
+          {/* DIFFICULTY STATS */}
+
+          <div className="leetcode-difficulty">
+
+            {/* EASY */}
+
+            <div className="difficulty-card">
 
               <span>
-                Total Solved
+                Easy
               </span>
 
               <strong>
-                {stats.problems_solved ?? 0}
+                {stats.easy ?? 0}
               </strong>
 
             </div>
 
 
-            {/* Profile */}
+            {/* MEDIUM */}
+
+            <div className="difficulty-card">
+
+              <span>
+                Medium
+              </span>
+
+              <strong>
+                {stats.medium ?? 0}
+              </strong>
+
+            </div>
+
+
+            {/* HARD */}
+
+            <div className="difficulty-card">
+
+              <span>
+                Hard
+              </span>
+
+              <strong>
+                {stats.hard ?? 0}
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          {/* OTHER STATS */}
+
+          <div className="leetcode-stats">
+
+            {/* PROFILE */}
 
             <div className="leetcode-stat">
 
@@ -131,7 +181,7 @@ function LeetCodeStats() {
             </div>
 
 
-            {/* Platform */}
+            {/* PLATFORM */}
 
             <div className="leetcode-stat">
 
@@ -146,7 +196,7 @@ function LeetCodeStats() {
             </div>
 
 
-            {/* Rating */}
+            {/* RATING */}
 
             <div className="leetcode-stat">
 
@@ -155,7 +205,7 @@ function LeetCodeStats() {
               </span>
 
               <strong>
-                {stats.rating ?? "—"}
+                {stats.rating || "—"}
               </strong>
 
             </div>
@@ -163,9 +213,12 @@ function LeetCodeStats() {
           </div>
 
 
+          {/* FOOTER */}
+
           <div className="leetcode-note">
-            LeetCode profile connected successfully.
+            Live LeetCode statistics.
           </div>
+
         </>
       )}
 
