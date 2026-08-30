@@ -5,17 +5,17 @@ function About() {
     {
       title: "Full Stack Development",
       description:
-        "Building complete web applications from frontend interfaces to backend APIs and databases.",
+        "Building complete web applications with modern frontend technologies, backend APIs, and databases.",
     },
     {
       title: "Problem Solving",
       description:
-        "Practising Data Structures and Algorithms to strengthen logical thinking and problem-solving skills.",
+        "Strengthening logical thinking through Data Structures, Algorithms, and consistent problem-solving practice.",
     },
     {
       title: "Continuous Learning",
       description:
-        "Exploring new technologies and continuously improving my development and software engineering skills.",
+        "Exploring new technologies, building projects, and continuously improving my software engineering skills.",
     },
   ];
 
@@ -42,20 +42,20 @@ function About() {
             </h3>
 
             <p>
-              I'm a Computer Science student and Full Stack Developer
-              interested in building modern, scalable and user-friendly
-              web applications.
+              I'm a Computer Science student focused on building practical
+              software and strengthening my skills in full-stack development.
             </p>
 
             <p>
-              I enjoy working with technologies like React, Node.js,
-              Java, Python and databases while continuously improving
-              my problem-solving and development skills.
+              I work with technologies such as React, Node.js, Java, Python,
+              and SQL, while developing a strong foundation in Data Structures,
+              Algorithms, and software engineering.
             </p>
 
             <p>
-              My goal is to build software that is not only functional,
-              but also clean, secure and enjoyable to use.
+              I enjoy turning ideas into functional, well-structured
+              applications and continuously learning through projects,
+              problem solving, and hands-on development.
             </p>
           </div>
 
@@ -68,6 +68,7 @@ function About() {
               >
                 <div className="info-card-top">
                   <span className="info-dot" />
+
                   <span className="info-tag">
                     EXPERTISE
                   </span>
