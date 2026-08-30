@@ -87,7 +87,7 @@ function Contact() {
         {/* Section Heading */}
 
         <div className="section-heading">
-          <span>13.</span>
+          <span></span>
           <h2>Contact</h2>
         </div>
 

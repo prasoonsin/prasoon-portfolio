@@ -54,7 +54,7 @@ function Certifications() {
         {/* Section Heading */}
 
         <div className="section-heading">
-          <span>06.</span>
+          <span></span>
           <h2>Certifications</h2>
         </div>
 

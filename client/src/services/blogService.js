@@ -1,11 +1,18 @@
+// =====================================================
+// API URL
+// =====================================================
+
 const API_URL =
   import.meta.env.VITE_API_URL ||
   "https://prasoon-portfolio-qxbv.onrender.com/api";
 
 
-// Get all blog posts
+// =====================================================
+// GET ALL BLOG POSTS
+// =====================================================
+
 export const getPosts = async () => {
-  const response = await fetch(`${API_URL}/blog`);
+  const response = await fetch(`${API_URL}/blogs`);
 
   if (!response.ok) {
     throw new Error("Failed to fetch blog posts");
@@ -17,9 +24,12 @@ export const getPosts = async () => {
 };
 
 
-// Get single blog post
+// =====================================================
+// GET SINGLE BLOG POST
+// =====================================================
+
 export const getPostById = async (id) => {
-  const response = await fetch(`${API_URL}/blog/${id}`);
+  const response = await fetch(`${API_URL}/blogs/${id}`);
 
   if (!response.ok) {
     throw new Error("Failed to fetch blog post");
@@ -31,15 +41,22 @@ export const getPostById = async (id) => {
 };
 
 
-// Create blog post
+// =====================================================
+// CREATE BLOG POST
+// =====================================================
+
 export const createPost = async (postData, token) => {
-  const response = await fetch(`${API_URL}/blog`, {
+  const response = await fetch(`${API_URL}/blogs`, {
     method: "POST",
+
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`
+      ...(token && {
+        Authorization: `Bearer ${token}`,
+      }),
     },
-    body: JSON.stringify(postData)
+
+    body: JSON.stringify(postData),
   });
 
   const result = await response.json();
@@ -54,15 +71,26 @@ export const createPost = async (postData, token) => {
 };
 
 
-// Update blog post
-export const updatePost = async (id, postData, token) => {
-  const response = await fetch(`${API_URL}/blog/${id}`, {
+// =====================================================
+// UPDATE BLOG POST
+// =====================================================
+
+export const updatePost = async (
+  id,
+  postData,
+  token
+) => {
+  const response = await fetch(`${API_URL}/blogs/${id}`, {
     method: "PUT",
+
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`
+      ...(token && {
+        Authorization: `Bearer ${token}`,
+      }),
     },
-    body: JSON.stringify(postData)
+
+    body: JSON.stringify(postData),
   });
 
   const result = await response.json();
@@ -77,13 +105,19 @@ export const updatePost = async (id, postData, token) => {
 };
 
 
-// Delete blog post
+// =====================================================
+// DELETE BLOG POST
+// =====================================================
+
 export const deletePost = async (id, token) => {
-  const response = await fetch(`${API_URL}/blog/${id}`, {
+  const response = await fetch(`${API_URL}/blogs/${id}`, {
     method: "DELETE",
+
     headers: {
-      Authorization: `Bearer ${token}`
-    }
+      ...(token && {
+        Authorization: `Bearer ${token}`,
+      }),
+    },
   });
 
   const result = await response.json();

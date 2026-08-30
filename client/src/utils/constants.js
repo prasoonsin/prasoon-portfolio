@@ -1,9 +1,16 @@
+// =====================================================
 // API
+// =====================================================
+
 const API_URL =
   import.meta.env.VITE_API_URL ||
   "https://prasoon-portfolio-qxbv.onrender.com/api";
 
-// Portfolio sections
+
+// =====================================================
+// PORTFOLIO SECTIONS
+// =====================================================
+
 export const NAVIGATION_ITEMS = [
   { label: "Home", id: "home" },
   { label: "About", id: "about" },
@@ -15,22 +22,41 @@ export const NAVIGATION_ITEMS = [
   { label: "Coding", id: "coding-stats" },
   { label: "Blog", id: "blog" },
   { label: "Contact", id: "contact" },
-  { label: "Resume", id: "resume" }
+  { label: "Resume", id: "resume" },
 ];
 
-// Storage keys
+
+// =====================================================
+// STORAGE KEYS
+// =====================================================
+
 export const STORAGE_KEYS = {
   TOKEN: "token",
-  USER: "user"
+  USER: "user",
 };
 
-// User roles
+
+// =====================================================
+// USER ROLES
+// =====================================================
+
 export const ROLES = {
   ADMIN: "admin",
-  USER: "user"
+  USER: "user",
 };
 
-// Default values
+
+// =====================================================
+// DEFAULT VALUES
+// =====================================================
+
 export const DEFAULT_READ_TIME = "5 min read";
 
 export const DEFAULT_PAGE_SIZE = 10;
+
+
+// =====================================================
+// API URL EXPORT
+// =====================================================
+
+export { API_URL };

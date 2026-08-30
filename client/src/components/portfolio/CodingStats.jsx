@@ -12,7 +12,7 @@ function CodingStats() {
         {/* Section Heading */}
 
         <div className="section-heading">
-          <span>07.</span>
+          <span></span>
           <h2>Coding Profiles</h2>
         </div>
 

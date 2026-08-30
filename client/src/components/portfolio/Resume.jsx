@@ -9,7 +9,7 @@ function Resume() {
         {/* Section Heading */}
 
         <div className="section-heading">
-          <span>08.</span>
+          <span></span>
           <h2>Resume</h2>
         </div>
 

@@ -78,7 +78,7 @@ function Experience() {
         {/* Section Heading */}
 
         <div className="experience-heading">
-          <span>03.</span>
+          <span></span>
           <h2>Experience</h2>
         </div>
 

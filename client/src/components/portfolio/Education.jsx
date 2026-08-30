@@ -40,7 +40,7 @@ function Education() {
         {/* Section Heading */}
 
         <div className="section-heading">
-          <span>02.</span>
+          <span></span>
           <h2>Education</h2>
         </div>
 

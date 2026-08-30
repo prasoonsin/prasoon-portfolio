@@ -61,7 +61,7 @@ function Skills() {
         {/* Section Heading */}
 
         <div className="section-heading">
-          <span>04.</span>
+          <span></span>
           <h2>Skills</h2>
         </div>
 

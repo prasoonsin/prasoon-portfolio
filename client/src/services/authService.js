@@ -2,17 +2,23 @@ const API_URL =
   import.meta.env.VITE_API_URL ||
   "https://prasoon-portfolio-qxbv.onrender.com/api";
 
-// Login
+
+// =====================================================
+// LOGIN
+// =====================================================
+
 export const login = async (email, password) => {
   const response = await fetch(`${API_URL}/auth/login`, {
     method: "POST",
+
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
+
     body: JSON.stringify({
       email,
-      password
-    })
+      password,
+    }),
   });
 
   const result = await response.json();
@@ -40,20 +46,29 @@ export const login = async (email, password) => {
 };
 
 
-// Logout
+// =====================================================
+// LOGOUT
+// =====================================================
+
 export const logout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
 };
 
 
-// Get stored token
+// =====================================================
+// GET STORED TOKEN
+// =====================================================
+
 export const getToken = () => {
   return localStorage.getItem("token");
 };
 
 
-// Get logged-in user
+// =====================================================
+// GET CURRENT USER
+// =====================================================
+
 export const getCurrentUser = () => {
   const user = localStorage.getItem("user");
 
@@ -64,26 +79,37 @@ export const getCurrentUser = () => {
   try {
     return JSON.parse(user);
   } catch (error) {
-    console.error("User data parsing error:", error);
+    console.error(
+      "User data parsing error:",
+      error
+    );
+
     return null;
   }
 };
 
 
-// Check authentication
+// =====================================================
+// CHECK AUTHENTICATION
+// =====================================================
+
 export const isAuthenticated = () => {
   return Boolean(getToken());
 };
 
 
-// Get authorization headers
+// =====================================================
+// GET AUTHORIZATION HEADERS
+// =====================================================
+
 export const getAuthHeaders = () => {
   const token = getToken();
 
   return {
     "Content-Type": "application/json",
+
     ...(token && {
-      Authorization: `Bearer ${token}`
-    })
+      Authorization: `Bearer ${token}`,
+    }),
   };
 };
