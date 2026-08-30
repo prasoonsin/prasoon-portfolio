@@ -9,15 +9,20 @@ function CodingStats() {
     >
       <div className="coding-stats-container">
 
-        {/* Section Heading */}
+        {/* =================================================
+            SECTION HEADING
+            ================================================= */}
 
-        <div className="section-heading">
-          <span></span>
+        <div className="coding-stats-heading">
+          <div className="coding-stats-heading-line" />
+
           <h2>Coding Profiles</h2>
         </div>
 
 
-        {/* Introduction */}
+        {/* =================================================
+            INTRODUCTION
+            ================================================= */}
 
         <p className="coding-stats-intro">
           My coding activity, open-source work and
@@ -25,14 +30,18 @@ function CodingStats() {
         </p>
 
 
-        {/* Coding Platforms */}
+        {/* =================================================
+            CODING PLATFORMS
+            ================================================= */}
 
         <div className="coding-stats-grid">
+          <div className="coding-profile-card">
+            <GitHubStats />
+          </div>
 
-          <GitHubStats />
-
-          <LeetCodeStats />
-
+          <div className="coding-profile-card">
+            <LeetCodeStats />
+          </div>
         </div>
 
       </div>

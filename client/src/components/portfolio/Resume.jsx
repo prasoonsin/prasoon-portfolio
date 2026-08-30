@@ -6,19 +6,26 @@ function Resume() {
     >
       <div className="resume-container">
 
-        {/* Section Heading */}
+        {/* =================================================
+            SECTION HEADING
+            ================================================= */}
 
-        <div className="section-heading">
-          <span></span>
+        <div className="resume-heading">
+          <div className="resume-heading-line" />
+
           <h2>Resume</h2>
         </div>
 
 
-        {/* Resume Card */}
+        {/* =================================================
+            RESUME CARD
+            ================================================= */}
 
         <div className="resume-card">
 
-          {/* Left Side */}
+          {/* =================================================
+              CONTENT
+              ================================================= */}
 
           <div className="resume-content">
 
@@ -27,17 +34,20 @@ function Resume() {
             </span>
 
             <h3>
-              Let's build something
-              <span> meaningful.</span>
+              A closer look at my
+              <span> journey.</span>
             </h3>
 
             <p>
               Explore my education, technical skills, projects,
-              experience and other professional details in my resume.
+              experience and other professional details in my
+              resume.
             </p>
 
 
-            {/* Resume Buttons */}
+            {/* =================================================
+                BUTTONS
+                ================================================= */}
 
             <div className="resume-buttons">
 
@@ -47,15 +57,22 @@ function Resume() {
                 rel="noopener noreferrer"
                 className="resume-primary-btn"
               >
-                View Resume
+                <span>View Resume</span>
+                <span className="resume-btn-arrow">
+                  ↗
+                </span>
               </a>
+
 
               <a
                 href="/resume.pdf"
                 download="Prasoon-Singh-Resume.pdf"
                 className="resume-secondary-btn"
               >
-                Download PDF
+                <span>Download PDF</span>
+                <span className="resume-btn-arrow">
+                  ↓
+                </span>
               </a>
 
             </div>
@@ -63,37 +80,65 @@ function Resume() {
           </div>
 
 
-          {/* Right Side */}
+          {/* =================================================
+              RESUME PREVIEW
+              ================================================= */}
 
           <div className="resume-preview">
 
+            <div className="resume-preview-glow" />
+
             <div className="resume-paper">
 
-              <div className="paper-line large"></div>
+              {/* Paper Header */}
 
-              <div className="paper-line medium"></div>
+              <div className="paper-header">
 
-              <div className="paper-line small"></div>
+                <div className="paper-profile" />
 
+                <div className="paper-header-lines">
+                  <div className="paper-line paper-title" />
+                  <div className="paper-line paper-subtitle" />
+                </div>
 
-              <div className="paper-section"></div>
-
-
-              <div className="paper-lines">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
               </div>
 
 
-              <div className="paper-section"></div>
+              {/* Divider */}
 
+              <div className="paper-divider" />
+
+
+              {/* Section */}
+
+              <div className="paper-section-title" />
 
               <div className="paper-lines">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span />
+                <span />
+                <span />
+                <span />
+              </div>
+
+
+              {/* Section */}
+
+              <div className="paper-section-title second" />
+
+              <div className="paper-lines">
+                <span />
+                <span />
+                <span />
+              </div>
+
+
+              {/* Section */}
+
+              <div className="paper-section-title third" />
+
+              <div className="paper-lines">
+                <span />
+                <span />
               </div>
 
             </div>

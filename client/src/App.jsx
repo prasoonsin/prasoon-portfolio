@@ -9,7 +9,7 @@ import Footer from "./components/common/Footer";
 
 import Hero from "./components/portfolio/Hero";
 import About from "./components/portfolio/About";
-import Education from "./components/portfolio/Education";
+//import Education from "./components/portfolio/Education";
 import Experience from "./components/portfolio/Experience";
 import Skills from "./components/portfolio/Skills";
 import Projects from "./components/portfolio/Projects";
@@ -127,7 +127,7 @@ function Portfolio() {
 
         <About />
 
-        <Education />
+       {/* <Education /> */}
 
         <Experience />
 

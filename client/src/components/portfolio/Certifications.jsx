@@ -51,15 +51,20 @@ function Certifications() {
     >
       <div className="certifications-container">
 
-        {/* Section Heading */}
+        {/* =================================================
+            SECTION HEADING
+            ================================================= */}
 
-        <div className="section-heading">
-          <span></span>
+        <div className="certifications-heading">
+          <div className="certifications-heading-line" />
+
           <h2>Certifications</h2>
         </div>
 
 
-        {/* Introduction */}
+        {/* =================================================
+            INTRODUCTION
+            ================================================= */}
 
         <p className="certifications-intro">
           Certifications and achievements that represent my
@@ -67,32 +72,44 @@ function Certifications() {
         </p>
 
 
-        {/* Loading */}
+        {/* =================================================
+            LOADING
+            ================================================= */}
 
         {loading && (
-          <p className="certifications-status">
-            Loading certifications...
-          </p>
+          <div className="certifications-state">
+            <div className="state-dot" />
+            <p>Loading certifications...</p>
+          </div>
         )}
 
 
-        {/* Error */}
+        {/* =================================================
+            ERROR
+            ================================================= */}
 
         {!loading && error && (
-          <p className="certifications-status">
-            {error}
-          </p>
+          <div className="certifications-state certifications-error">
+            <div className="state-dot" />
+            <p>{error}</p>
+          </div>
         )}
 
 
-        {/* Certification List */}
+        {/* =================================================
+            CERTIFICATION CONTENT
+            ================================================= */}
 
         {!loading && !error && (
           <>
             {certifications.length === 0 ? (
-              <p className="certifications-status">
-                No certifications added yet.
-              </p>
+              <div className="certifications-state">
+                <div className="state-dot" />
+
+                <p>
+                  No certifications added yet.
+                </p>
+              </div>
             ) : (
               <div className="certifications-grid">
 
@@ -107,15 +124,17 @@ function Certifications() {
                       key={certification.id}
                     >
 
-                      {/* Card Top */}
+                      {/* =================================================
+                          CARD HEADER
+                          ================================================= */}
 
-                      <div className="certification-top">
+                      <div className="certification-card-header">
 
                         <div
                           className="certificate-icon"
                           aria-hidden="true"
                         >
-                          ✓
+                          <span>✓</span>
                         </div>
 
                         {year && (
@@ -127,42 +146,59 @@ function Certifications() {
                       </div>
 
 
-                      {/* Title */}
+                      {/* =================================================
+                          CARD CONTENT
+                          ================================================= */}
 
-                      <h3>
-                        {certification.title}
-                      </h3>
+                      <div className="certification-card-content">
+
+                        <span className="certificate-label">
+                          CERTIFICATION
+                        </span>
+
+                        <h3>
+                          {certification.title}
+                        </h3>
+
+                        {certification.organization && (
+                          <p className="certificate-issuer">
+                            {certification.organization}
+                          </p>
+                        )}
+
+                        {certification.description && (
+                          <p className="certificate-description">
+                            {certification.description}
+                          </p>
+                        )}
+
+                      </div>
 
 
-                      {/* Issuing Organization */}
-
-                      {certification.organization && (
-                        <p className="certificate-issuer">
-                          {certification.organization}
-                        </p>
-                      )}
-
-
-                      {/* Description */}
-
-                      {certification.description && (
-                        <p className="certificate-description">
-                          {certification.description}
-                        </p>
-                      )}
-
-
-                      {/* Certificate Link */}
+                      {/* =================================================
+                          CARD FOOTER
+                          ================================================= */}
 
                       {certification.credential_url && (
-                        <a
-                          href={certification.credential_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="certificate-link"
-                        >
-                          View Certificate →
-                        </a>
+                        <div className="certification-card-footer">
+
+                          <a
+                            href={certification.credential_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="certificate-link"
+                          >
+                            <span>View Certificate</span>
+
+                            <span
+                              className="certificate-arrow"
+                              aria-hidden="true"
+                            >
+                              ↗
+                            </span>
+                          </a>
+
+                        </div>
                       )}
 
                     </article>

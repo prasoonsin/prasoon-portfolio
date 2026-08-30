@@ -31,7 +31,9 @@ function Skills() {
   }, []);
 
 
-  // Group skills by category
+  // =====================================================
+  // GROUP SKILLS BY CATEGORY
+  // =====================================================
 
   const skillCategories = skills.reduce(
     (categories, skill) => {
@@ -58,15 +60,20 @@ function Skills() {
     >
       <div className="skills-container">
 
-        {/* Section Heading */}
+        {/* =================================================
+            SECTION HEADING
+            ================================================= */}
 
-        <div className="section-heading">
-          <span></span>
+        <div className="skills-heading">
+          <div className="skills-heading-line" />
+
           <h2>Skills</h2>
         </div>
 
 
-        {/* Introduction */}
+        {/* =================================================
+            INTRODUCTION
+            ================================================= */}
 
         <p className="skills-intro">
           Technologies and tools I use to build, develop and
@@ -74,25 +81,35 @@ function Skills() {
         </p>
 
 
-        {/* Loading */}
+        {/* =================================================
+            LOADING
+            ================================================= */}
 
         {loading && (
-          <p className="skills-message">
-            Loading skills...
-          </p>
+          <div className="skills-state">
+            <span className="skills-state-dot" />
+
+            <p>Loading skills...</p>
+          </div>
         )}
 
 
-        {/* Error */}
+        {/* =================================================
+            ERROR
+            ================================================= */}
 
         {!loading && error && (
-          <p className="skills-message">
-            {error}
-          </p>
+          <div className="skills-state skills-error">
+            <span className="skills-state-dot" />
+
+            <p>{error}</p>
+          </div>
         )}
 
 
-        {/* Skills */}
+        {/* =================================================
+            SKILL CATEGORIES
+            ================================================= */}
 
         {!loading &&
           !error &&
@@ -101,7 +118,7 @@ function Skills() {
 
               {Object.entries(skillCategories).map(
                 ([category, categorySkills]) => (
-                  <div
+                  <article
                     className="skill-category"
                     key={category}
                   >
@@ -110,15 +127,22 @@ function Skills() {
 
                     <div className="skill-category-header">
 
-                      <span className="skill-number">
-                        //
-                      </span>
+                      <span className="skill-category-dot" />
 
                       <h3>
                         {category}
                       </h3>
 
+                      <span className="skill-count">
+                        {categorySkills.length}
+                      </span>
+
                     </div>
+
+
+                    {/* Divider */}
+
+                    <div className="skill-category-divider" />
 
 
                     {/* Skill List */}
@@ -138,7 +162,7 @@ function Skills() {
 
                     </div>
 
-                  </div>
+                  </article>
                 )
               )}
 
@@ -146,14 +170,18 @@ function Skills() {
           )}
 
 
-        {/* Empty State */}
+        {/* =================================================
+            EMPTY STATE
+            ================================================= */}
 
         {!loading &&
           !error &&
           skills.length === 0 && (
-            <p className="skills-message">
-              No skills found.
-            </p>
+            <div className="skills-state">
+              <span className="skills-state-dot" />
+
+              <p>No skills found.</p>
+            </div>
           )}
 
       </div>

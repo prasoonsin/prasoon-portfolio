@@ -75,120 +75,191 @@ function Experience() {
     >
       <div className="experience-container">
 
-        {/* Section Heading */}
+        {/* =================================================
+            SECTION HEADING
+            ================================================= */}
 
         <div className="experience-heading">
-          <span></span>
+          <div className="experience-heading-line" />
+
           <h2>Experience</h2>
         </div>
 
 
-        {/* Loading */}
+        {/* =================================================
+            INTRO
+            ================================================= */}
+
+        <p className="experience-description">
+          My professional experience, practical learning,
+          and the technologies I've worked with along the way.
+        </p>
+
+
+        {/* =================================================
+            LOADING
+            ================================================= */}
 
         {loading && (
-          <p className="experience-message">
-            Loading experience...
-          </p>
+          <div className="experience-state">
+            <span className="experience-state-dot" />
+            <p>Loading experience...</p>
+          </div>
         )}
 
 
-        {/* Error */}
+        {/* =================================================
+            ERROR
+            ================================================= */}
 
         {!loading && error && (
-          <p className="experience-message">
-            {error}
-          </p>
+          <div className="experience-state experience-error">
+            <span className="experience-state-dot" />
+            <p>{error}</p>
+          </div>
         )}
 
 
-        {/* Experience Data */}
+        {/* =================================================
+            EXPERIENCE DATA
+            ================================================= */}
 
         {!loading && !error && (
-          <div className="experience-list">
-
+          <>
             {experience.length === 0 ? (
-              <p className="experience-message">
-                No experience records found.
-              </p>
+              <div className="experience-state">
+                <span className="experience-state-dot" />
+
+                <p>
+                  No experience records found.
+                </p>
+              </div>
             ) : (
-              experience.map((item) => (
-                <article
-                  className="experience-card"
-                  key={item.id}
-                >
+              <div className="experience-list">
 
-                  {/* Experience Top */}
+                {experience.map((item) => (
+                  <article
+                    className="experience-card"
+                    key={item.id}
+                  >
 
-                  <div className="experience-top">
+                    {/* =================================================
+                        CARD TOP
+                        ================================================= */}
 
-                    <div>
+                    <div className="experience-top">
 
-                      <h3>
-                        {item.position}
-                      </h3>
+                      <div className="experience-title-area">
 
-                      <h4>
-                        {item.company}
-                      </h4>
+                        <span className="experience-label">
+                          EXPERIENCE
+                        </span>
 
-                    </div>
+                        <h3>
+                          {item.position}
+                        </h3>
 
+                        <h4>
+                          {item.company}
+                        </h4>
 
-                    {/* Date */}
-
-                    {getDateRange(item) && (
-                      <span className="experience-date">
-                        {getDateRange(item)}
-                      </span>
-                    )}
-
-                  </div>
+                      </div>
 
 
-                  {/* Description */}
+                      {/* =================================================
+                          DATE
+                          ================================================= */}
 
-                  {item.description && (
-                    <div className="experience-body">
+                      {getDateRange(item) && (
+                        <div className="experience-date-box">
 
-                      <p className="experience-intro">
-                        {item.description}
-                      </p>
-
-                    </div>
-                  )}
-
-
-                  {/* Technologies */}
-
-                  {item.technologies && (
-                    <div className="experience-tech">
-
-                      {Array.isArray(item.technologies) ? (
-                        item.technologies.map((technology) => (
-                          <span key={technology}>
-                            {technology}
+                          <span className="experience-date-label">
+                            PERIOD
                           </span>
-                        ))
-                      ) : (
-                        String(item.technologies)
-                          .split(",")
-                          .map((technology) => (
-                            <span
-                              key={technology.trim()}
-                            >
-                              {technology.trim()}
-                            </span>
-                          ))
+
+                          <span className="experience-date">
+                            {getDateRange(item)}
+                          </span>
+
+                        </div>
                       )}
 
                     </div>
-                  )}
 
-                </article>
-              ))
+
+                    {/* =================================================
+                        CURRENT STATUS
+                        ================================================= */}
+
+                    {item.is_current && (
+                      <div className="experience-current">
+                        <span className="current-dot" />
+                        Currently working here
+                      </div>
+                    )}
+
+
+                    {/* =================================================
+                        DESCRIPTION
+                        ================================================= */}
+
+                    {item.description && (
+                      <div className="experience-body">
+
+                        <p>
+                          {item.description}
+                        </p>
+
+                      </div>
+                    )}
+
+
+                    {/* =================================================
+                        TECHNOLOGIES
+                        ================================================= */}
+
+                    {item.technologies && (
+                      <div className="experience-tech-section">
+
+                        <span className="experience-tech-label">
+                          TECHNOLOGIES
+                        </span>
+
+                        <div className="experience-tech">
+
+                          {Array.isArray(item.technologies) ? (
+                            item.technologies.map(
+                              (technology) => (
+                                <span
+                                  key={technology}
+                                >
+                                  {technology}
+                                </span>
+                              )
+                            )
+                          ) : (
+                            String(item.technologies)
+                              .split(",")
+                              .map((technology) => (
+                                <span
+                                  key={technology.trim()}
+                                >
+                                  {technology.trim()}
+                                </span>
+                              ))
+                          )}
+
+                        </div>
+
+                      </div>
+                    )}
+
+                  </article>
+                ))}
+
+              </div>
             )}
-
-          </div>
+          </>
         )}
 
       </div>

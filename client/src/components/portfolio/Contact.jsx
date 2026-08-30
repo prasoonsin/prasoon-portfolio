@@ -78,177 +78,277 @@ function Contact() {
   };
 
   return (
-    <section
-      className="contact"
-      id="contact"
-    >
+    <section className="contact" id="contact">
       <div className="contact-container">
 
-        {/* Section Heading */}
+        {/* =================================================
+            SECTION HEADING
+            ================================================= */}
 
-        <div className="section-heading">
-          <span></span>
+        <div className="contact-heading">
+          <div className="contact-heading-line" />
+
           <h2>Contact</h2>
         </div>
 
 
-        {/* Contact Content */}
+        {/* =================================================
+            INTRODUCTION
+            ================================================= */}
+
+        <p className="contact-intro">
+          Have a project, opportunity or just want to
+          connect? I'd love to hear from you.
+        </p>
+
+
+        {/* =================================================
+            CONTACT CONTENT
+            ================================================= */}
 
         <div className="contact-content">
 
-          {/* Contact Information */}
+          {/* =================================================
+              CONTACT INFORMATION
+              ================================================= */}
 
-          <div className="contact-info">
+          <div className="contact-info-card">
 
-            <h3>Let's Work Together</h3>
+            <span className="contact-label">
+              GET IN TOUCH
+            </span>
 
-            <p>
-              Have a project, opportunity or just want to
-              connect? Feel free to reach out.
+            <h3>
+              Let's build something
+              <span> meaningful.</span>
+            </h3>
+
+            <p className="contact-description">
+              Whether you have a project idea, internship
+              opportunity, collaboration or simply want to
+              connect, feel free to reach out.
             </p>
 
 
-            {/* Contact Links */}
+            {/* Contact Details */}
 
             <div className="contact-details">
 
-              <a href="mailto:prasoonp.mzp@gmail.com">
-                Email
+              <a
+                href="mailto:prasoonp.mzp@gmail.com"
+                className="contact-detail"
+              >
+                <div className="contact-detail-icon">
+                  @
+                </div>
+
+                <div>
+                  <span className="contact-detail-label">
+                    EMAIL
+                  </span>
+
+                  <span className="contact-detail-value">
+                    prasoonp.mzp@gmail.com
+                  </span>
+                </div>
               </a>
+
 
               <a
                 href="https://github.com/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="contact-detail"
               >
-                GitHub
+                <div className="contact-detail-icon">
+                  GH
+                </div>
+
+                <div>
+                  <span className="contact-detail-label">
+                    GITHUB
+                  </span>
+
+                  <span className="contact-detail-value">
+                    GitHub Profile
+                  </span>
+                </div>
               </a>
+
 
               <a
                 href="https://www.linkedin.com/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="contact-detail"
               >
-                LinkedIn
+                <div className="contact-detail-icon">
+                  in
+                </div>
+
+                <div>
+                  <span className="contact-detail-label">
+                    LINKEDIN
+                  </span>
+
+                  <span className="contact-detail-value">
+                    LinkedIn Profile
+                  </span>
+                </div>
               </a>
 
+            </div>
+
+
+            {/* Availability */}
+
+            <div className="contact-availability">
+              <span className="availability-dot" />
+
+              <span>
+                Open to opportunities and collaborations
+              </span>
             </div>
 
           </div>
 
 
-          {/* Contact Form */}
+          {/* =================================================
+              CONTACT FORM
+              ================================================= */}
 
-          <form
-            className="contact-form"
-            onSubmit={handleSubmit}
-          >
+          <div className="contact-form-card">
 
-            {/* Name */}
+            <div className="form-card-header">
+              <span className="form-label">
+                MESSAGE
+              </span>
 
-            <div className="form-group">
-
-              <label htmlFor="contact-name">
-                Name
-              </label>
-
-              <input
-                type="text"
-                id="contact-name"
-                name="name"
-                placeholder="Your name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-
-            </div>
-
-
-            {/* Email */}
-
-            <div className="form-group">
-
-              <label htmlFor="contact-email">
-                Email
-              </label>
-
-              <input
-                type="email"
-                id="contact-email"
-                name="email"
-                placeholder="Your email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-
-            </div>
-
-
-            {/* Subject */}
-
-            <div className="form-group">
-
-              <label htmlFor="contact-subject">
-                Subject
-              </label>
-
-              <input
-                type="text"
-                id="contact-subject"
-                name="subject"
-                placeholder="Subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-              />
-
-            </div>
-
-
-            {/* Message */}
-
-            <div className="form-group">
-
-              <label htmlFor="contact-message">
-                Message
-              </label>
-
-              <textarea
-                id="contact-message"
-                name="message"
-                rows="6"
-                placeholder="Your message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-
-            </div>
-
-
-            {/* Status */}
-
-            {status.message && (
-              <p className={`contact-status ${status.type}`}>
-                {status.message}
+              <p>
+                Send me a message and I'll get back to you
+                as soon as possible.
               </p>
-            )}
+            </div>
 
 
-            {/* Submit */}
-
-            <button
-              type="submit"
-              disabled={loading}
+            <form
+              className="contact-form"
+              onSubmit={handleSubmit}
             >
-              {loading
-                ? "Sending..."
-                : "Send Message"}
-            </button>
 
-          </form>
+              {/* Name */}
+
+              <div className="form-group">
+                <label htmlFor="contact-name">
+                  Name
+                </label>
+
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+
+              {/* Email */}
+
+              <div className="form-group">
+                <label htmlFor="contact-email">
+                  Email
+                </label>
+
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  placeholder="you@example.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+
+              {/* Subject */}
+
+              <div className="form-group">
+                <label htmlFor="contact-subject">
+                  Subject
+                </label>
+
+                <input
+                  type="text"
+                  id="contact-subject"
+                  name="subject"
+                  placeholder="What would you like to talk about?"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+
+              {/* Message */}
+
+              <div className="form-group">
+                <label htmlFor="contact-message">
+                  Message
+                </label>
+
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows="6"
+                  placeholder="Tell me a little about your idea..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+
+              {/* Status */}
+
+              {status.message && (
+                <div
+                  className={`contact-status ${status.type}`}
+                  role="status"
+                >
+                  <span className="status-indicator" />
+
+                  <span>{status.message}</span>
+                </div>
+              )}
+
+
+              {/* Submit */}
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="contact-submit"
+              >
+                <span>
+                  {loading
+                    ? "Sending..."
+                    : "Send Message"}
+                </span>
+
+                {!loading && (
+                  <span className="submit-arrow">
+                    ↗
+                  </span>
+                )}
+              </button>
+
+            </form>
+
+          </div>
 
         </div>
 

@@ -1,35 +1,186 @@
+/* =====================================================
+   CODING STATS SECTION
+   ===================================================== */
+
 .coding-stats {
-  padding: 120px 8%;
+  padding: 110px 8%;
   background: #080808;
 }
 
 .coding-stats-container {
-  max-width: 1200px;
-  margin: auto;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-.coding-stats-intro {
-  max-width: 650px;
-  color: #8f8f8f;
-  font-size: 17px;
-  line-height: 1.8;
-  margin-bottom: 50px;
+
+/* =====================================================
+   SECTION HEADING
+   ===================================================== */
+
+.coding-stats-heading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 28px;
 }
+
+.coding-stats-heading-line {
+  width: 42px;
+  height: 1px;
+  background: #63d5ff;
+  flex-shrink: 0;
+}
+
+.coding-stats-heading h2 {
+  margin: 0;
+  padding: 12px 20px;
+
+  color: #ffffff;
+
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+
+  background: #0c0c0c;
+
+  border: 1px solid #242424;
+  border-radius: 10px;
+}
+
+
+/* =====================================================
+   INTRODUCTION
+   ===================================================== */
+
+.coding-stats-intro {
+  max-width: 720px;
+
+  margin: 0 0 58px;
+
+  color: #999999;
+
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+
+/* =====================================================
+   CODING GRID
+   ===================================================== */
 
 .coding-stats-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+
+  align-items: stretch;
 }
 
-/* Responsive */
 
-@media (max-width: 850px) {
+/* =====================================================
+   PROFILE CARD
+   ===================================================== */
+
+.coding-profile-card {
+  min-width: 0;
+
+  padding: 2px;
+
+  background: #0c0c0c;
+
+  border: 1px solid #242424;
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.coding-profile-card:hover {
+  transform: translateY(-5px);
+
+  border-color: #63d5ff;
+
+  background: #0f0f0f;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =====================================================
+   KEEP EMBEDDED COMPONENTS CLEAN
+   ===================================================== */
+
+/*
+  GitHubStats and LeetCodeStats already contain
+  their own content and data logic.
+
+  These rules only make their outer presentation
+  consistent with the rest of the portfolio.
+*/
+
+.coding-profile-card > * {
+  width: 100%;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 900px) {
   .coding-stats {
     padding: 90px 6%;
   }
 
+  .coding-stats-heading h2 {
+    font-size: 36px;
+  }
+
   .coding-stats-grid {
     grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .coding-stats {
+    padding: 75px 5%;
+  }
+
+  .coding-stats-heading {
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .coding-stats-heading-line {
+    width: 28px;
+  }
+
+  .coding-stats-heading h2 {
+    padding: 10px 15px;
+    font-size: 30px;
+  }
+
+  .coding-stats-intro {
+    margin-bottom: 42px;
+    font-size: 15px;
+  }
+
+  .coding-stats-grid {
+    gap: 16px;
+  }
+
+  .coding-profile-card {
+    border-radius: 14px;
   }
 }

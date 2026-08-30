@@ -37,95 +37,149 @@ function Education() {
     >
       <div className="education-container">
 
-        {/* Section Heading */}
+        {/* =================================================
+            SECTION HEADING
+            ================================================= */}
 
-        <div className="section-heading">
-          <span></span>
+        <div className="education-heading">
+          <div className="education-heading-line" />
+
           <h2>Education</h2>
         </div>
 
 
-        {/* Loading */}
+        {/* =================================================
+            INTRO
+            ================================================= */}
+
+        <p className="education-intro">
+          My academic journey and the experiences that
+          have shaped my foundation in computer science.
+        </p>
+
+
+        {/* =================================================
+            LOADING
+            ================================================= */}
 
         {loading && (
-          <p className="education-message">
-            Loading education...
-          </p>
+          <div className="education-state">
+            <span className="education-state-dot" />
+            <p>Loading education...</p>
+          </div>
         )}
 
 
-        {/* Error */}
+        {/* =================================================
+            ERROR
+            ================================================= */}
 
         {!loading && error && (
-          <p className="education-message">
-            {error}
-          </p>
+          <div className="education-state education-error">
+            <span className="education-state-dot" />
+            <p>{error}</p>
+          </div>
         )}
 
 
-        {/* Education Data */}
+        {/* =================================================
+            EDUCATION DATA
+            ================================================= */}
 
         {!loading && !error && (
-          <div className="education-list">
-
+          <>
             {education.length === 0 ? (
-              <p className="education-message">
-                No education records found.
-              </p>
+              <div className="education-state">
+                <span className="education-state-dot" />
+
+                <p>
+                  No education records found.
+                </p>
+              </div>
             ) : (
-              education.map((item) => (
-                <article
-                  className="education-card"
-                  key={item.id}
-                >
+              <div className="education-list">
 
-                  {/* Degree */}
+                {education.map((item) => (
+                  <article
+                    className="education-card"
+                    key={item.id}
+                  >
 
-                  <h3>
-                    {item.degree}
-                  </h3>
+                    {/* =================================================
+                        CARD TOP
+                        ================================================= */}
 
+                    <div className="education-card-top">
 
-                  {/* Institution */}
+                      <div className="education-card-title">
 
-                  <h4>
-                    {item.institution}
-                  </h4>
+                        <span className="education-label">
+                          EDUCATION
+                        </span>
 
+                        <h3>
+                          {item.degree}
+                        </h3>
 
-                  {/* Duration */}
+                        <h4>
+                          {item.institution}
+                        </h4>
 
-                  {(item.start_year || item.end_year) && (
-                    <p className="education-duration">
-                      {item.start_year || "N/A"} -{" "}
-                      {item.end_year || "Present"}
-                    </p>
-                  )}
-
-
-                  {/* Description */}
-
-                  {item.description && (
-                    <p className="education-description">
-                      {item.description}
-                    </p>
-                  )}
+                      </div>
 
 
-                  {/* Grade */}
+                      {/* Duration */}
 
-                  {item.grade && (
-                    <p className="education-grade">
-                      <strong>Grade:</strong>{" "}
-                      {item.grade}
-                    </p>
-                  )}
+                      {(item.start_year || item.end_year) && (
+                        <div className="education-duration">
+                          <span className="duration-label">
+                            DURATION
+                          </span>
 
-                </article>
-              ))
+                          <span className="duration-value">
+                            {item.start_year || "N/A"}
+                            {" — "}
+                            {item.end_year || "Present"}
+                          </span>
+                        </div>
+                      )}
+
+                    </div>
+
+
+                    {/* =================================================
+                        DESCRIPTION
+                        ================================================= */}
+
+                    {item.description && (
+                      <p className="education-description">
+                        {item.description}
+                      </p>
+                    )}
+
+
+                    {/* =================================================
+                        GRADE
+                        ================================================= */}
+
+                    {item.grade && (
+                      <div className="education-grade">
+                        <span className="grade-label">
+                          GRADE
+                        </span>
+
+                        <span className="grade-value">
+                          {item.grade}
+                        </span>
+                      </div>
+                    )}
+
+                  </article>
+                ))}
+
+              </div>
             )}
-
-          </div>
+          </>
         )}
 
       </div>

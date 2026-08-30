@@ -3,26 +3,42 @@ function Hero() {
     <section className="hero" id="home">
       <div className="hero-container">
 
-        {/* Left Side */}
+        {/* =================================================
+            LEFT CONTENT
+            ================================================= */}
+
         <div className="hero-content">
 
-          <p className="hero-intro">
-            Hi, I'm <span>Prasoon</span>
-          </p>
+          {/* Intro */}
+          <div className="hero-intro">
+            <span className="intro-line"></span>
 
+            <span>
+              Hi, I'm <strong>Prasoon</strong>
+            </span>
+          </div>
+
+
+          {/* Main Heading */}
           <h1>
             Full Stack Developer
-            <br />
-            & Computer Science Student
+            <span className="hero-title-accent">
+              {" "} & Computer Science Student
+            </span>
           </h1>
 
+
+          {/* Description */}
           <p className="hero-description">
-            I build modern, responsive and scalable web applications
-            using clean code and practical technologies.
+            I build modern, responsive and scalable web
+            applications using clean code and practical
+            technologies.
           </p>
 
 
-          {/* Main Buttons */}
+          {/* =================================================
+              BUTTONS
+              ================================================= */}
 
           <div className="hero-buttons">
 
@@ -30,8 +46,10 @@ function Hero() {
               href="#projects"
               className="primary-btn"
             >
-              View My Work
+              <span>View My Work</span>
+              <span className="btn-arrow">↗</span>
             </a>
+
 
             <a
               href="/resume.pdf"
@@ -39,95 +57,96 @@ function Hero() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Download Resume
+              <span>Download Resume</span>
+              <span className="btn-arrow">↓</span>
             </a>
 
           </div>
 
 
-          {/* Social Links */}
+          {/* =================================================
+              SOCIAL LINKS
+              ================================================= */}
 
           <div className="hero-socials">
 
-            <a
-              href="https://github.com/prasoonsin"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
+            <span className="social-label">
+              FIND ME
+            </span>
 
-            <a
-              href="https://www.linkedin.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn
-            </a>
+            <div className="social-links">
 
-            <a
-              href="https://leetcode.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LeetCode
-            </a>
+              <a
+                href="https://github.com/prasoonsin"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+
+              <a
+                href="https://leetcode.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LeetCode
+              </a>
+
+            </div>
 
           </div>
 
         </div>
 
 
-        {/* Right Side */}
+        {/* =================================================
+            RIGHT SIDE - PROFILE IMAGE
+            ================================================= */}
 
         <div className="hero-visual">
 
-          <div className="hero-card">
+          {/* Soft background glow */}
+          <div className="hero-glow"></div>
 
-            {/* Code Window Header */}
 
-            <div className="code-header">
-              <span></span>
-              <span></span>
-              <span></span>
+          {/* Decorative frame */}
+          <div className="profile-frame">
+
+            <div className="profile-corner profile-corner-top"></div>
+
+            <div className="profile-corner profile-corner-bottom"></div>
+
+
+            {/* Profile Image */}
+            <div className="profile-wrapper">
+
+              <img
+                src="/profile.png"
+                alt="Prasoon - Full Stack Developer"
+                className="profile-image"
+              />
+
             </div>
 
 
-            {/* Code */}
+            {/* Small caption */}
+            <div className="profile-caption">
 
-            <div className="code-content">
+              <span className="caption-line"></span>
 
-              <p>
-                <span className="code-purple">
-                  const
-                </span>{" "}
-                developer = {"{"}
-              </p>
+              <span>
+                FULL STACK DEVELOPER
+              </span>
 
-              <p className="code-indent">
-                name:{" "}
-                <span className="code-green">
-                  "Prasoon"
-                </span>,
-              </p>
-
-              <p className="code-indent">
-                role:{" "}
-                <span className="code-green">
-                  "Full Stack Developer"
-                </span>,
-              </p>
-
-              <p className="code-indent">
-                passion:{" "}
-                <span className="code-green">
-                  "Building"
-                </span>
-              </p>
-
-              <p>
-                {"}"}
-              </p>
+              <span className="caption-dot"></span>
 
             </div>
 
@@ -138,7 +157,9 @@ function Hero() {
       </div>
 
 
-      {/* Scroll Indicator */}
+      {/* =================================================
+          SCROLL INDICATOR
+          ================================================= */}
 
       <div className="scroll-indicator">
 
@@ -146,9 +167,20 @@ function Hero() {
           Scroll to explore
         </span>
 
-        <div className="scroll-line"></div>
+        <div className="scroll-line">
+          <span></span>
+        </div>
 
       </div>
+
+
+      {/* =================================================
+          DECORATIVE DOTS
+          ================================================= */}
+
+      <span className="floating-dot dot-one"></span>
+
+      <span className="floating-dot dot-two"></span>
 
     </section>
   );

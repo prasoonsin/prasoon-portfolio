@@ -3,19 +3,16 @@ import "./about.css";
 function About() {
   const highlights = [
     {
-      number: "01",
       title: "Full Stack Development",
       description:
         "Building complete web applications from frontend interfaces to backend APIs and databases.",
     },
     {
-      number: "02",
       title: "Problem Solving",
       description:
         "Practising Data Structures and Algorithms to strengthen logical thinking and problem-solving skills.",
     },
     {
-      number: "03",
       title: "Continuous Learning",
       description:
         "Exploring new technologies and continuously improving my development and software engineering skills.",
@@ -24,28 +21,24 @@ function About() {
 
   return (
     <section id="about" className="about-section">
-
       <div className="about-container">
 
         {/* Section Heading */}
-
-        <div className="section-heading about-heading">
-          <span>01.</span>
+        <div className="about-heading">
+          <div className="heading-line" />
           <h2>About Me</h2>
         </div>
 
-
         {/* Main Content */}
-
         <div className="about-content">
 
           {/* About Text */}
-
           <div className="about-text">
+            <span className="about-label">ABOUT</span>
 
             <h3>
-              Building ideas into
-              <span> real-world applications.</span>
+              Building ideas into{" "}
+              <span>real-world applications.</span>
             </h3>
 
             <p>
@@ -64,39 +57,33 @@ function About() {
               My goal is to build software that is not only functional,
               but also clean, secure and enjoyable to use.
             </p>
-
           </div>
 
-
           {/* Highlights */}
-
           <div className="about-info">
-
             {highlights.map((item) => (
-              <div
+              <article
                 className="info-card"
-                key={item.number}
+                key={item.title}
               >
-                <span className="info-number">
-                  {item.number}
-                </span>
+                <div className="info-card-top">
+                  <span className="info-dot" />
+                  <span className="info-tag">
+                    EXPERTISE
+                  </span>
+                </div>
 
                 <div className="info-card-content">
                   <h4>{item.title}</h4>
 
-                  <p>
-                    {item.description}
-                  </p>
+                  <p>{item.description}</p>
                 </div>
-              </div>
+              </article>
             ))}
-
           </div>
 
         </div>
-
       </div>
-
     </section>
   );
 }

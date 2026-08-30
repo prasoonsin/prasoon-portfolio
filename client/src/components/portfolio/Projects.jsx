@@ -38,15 +38,20 @@ function Projects() {
     >
       <div className="projects-container">
 
-        {/* Section Heading */}
+        {/* =================================================
+            SECTION HEADING
+            ================================================= */}
 
-        <div className="section-heading">
-          <span></span>
+        <div className="projects-heading">
+          <div className="projects-heading-line" />
+
           <h2>Projects</h2>
         </div>
 
 
-        {/* Introduction */}
+        {/* =================================================
+            INTRODUCTION
+            ================================================= */}
 
         <p className="projects-intro">
           Some of the projects I've built while learning,
@@ -54,43 +59,61 @@ function Projects() {
         </p>
 
 
-        {/* Loading */}
+        {/* =================================================
+            LOADING
+            ================================================= */}
 
         {loading && (
-          <p className="projects-message">
-            Loading projects...
-          </p>
+          <div className="projects-state">
+            <span className="projects-state-dot" />
+
+            <p>Loading projects...</p>
+          </div>
         )}
 
 
-        {/* Error */}
+        {/* =================================================
+            ERROR
+            ================================================= */}
 
         {!loading && error && (
-          <p className="projects-message">
-            {error}
-          </p>
+          <div className="projects-state projects-error">
+            <span className="projects-state-dot" />
+
+            <p>{error}</p>
+          </div>
         )}
 
 
-        {/* Projects */}
+        {/* =================================================
+            PROJECTS
+            ================================================= */}
 
         {!loading && !error && (
-          <div className="projects-grid">
-
+          <>
             {projects.length === 0 ? (
-              <p className="projects-message">
-                No projects found.
-              </p>
-            ) : (
-              projects.map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                />
-              ))
-            )}
+              <div className="projects-state">
+                <span className="projects-state-dot" />
 
-          </div>
+                <p>No projects found.</p>
+              </div>
+            ) : (
+              <div className="projects-grid">
+
+                {projects.map((project) => (
+                  <div
+                    className="project-wrapper"
+                    key={project.id}
+                  >
+                    <ProjectCard
+                      project={project}
+                    />
+                  </div>
+                ))}
+
+              </div>
+            )}
+          </>
         )}
 
       </div>
