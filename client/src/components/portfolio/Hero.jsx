@@ -21,18 +21,17 @@ function Hero() {
 
           {/* Main Heading */}
           <h1>
-            Full Stack Developer
+            Computer Science Student
             <span className="hero-title-accent">
-              {" "} & Computer Science Student
+              {" "} & Problem Solver
             </span>
           </h1>
 
 
           {/* Description */}
           <p className="hero-description">
-            I build modern, responsive and scalable web
-            applications using clean code and practical
-            technologies.
+            I’m passionate about building software, solving problems,
+            and turning ideas into practical solutions through code.
           </p>
 
 
@@ -84,6 +83,7 @@ function Hero() {
                 GitHub
               </a>
 
+
               <a
                 href="https://www.linkedin.com/"
                 target="_blank"
@@ -92,8 +92,9 @@ function Hero() {
                 LinkedIn
               </a>
 
+
               <a
-                href="https://leetcode.com/"
+                href="https://leetcode.com/u/fjTAMtDvp0/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -130,7 +131,7 @@ function Hero() {
 
               <img
                 src="/profile.png"
-                alt="Prasoon - Full Stack Developer"
+                alt="Prasoon"
                 className="profile-image"
               />
 
