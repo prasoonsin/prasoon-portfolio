@@ -1,6 +1,33 @@
 const pool = require("../config/database");
 
-// Get all projects
+// =====================================================
+// HELPER
+// =====================================================
+
+// Convert technologies into a safe value for MySQL
+const normalizeTechnologies = (technologies) => {
+  if (technologies === undefined || technologies === null) {
+    return null;
+  }
+
+  // If frontend sends an array
+  if (Array.isArray(technologies)) {
+    return JSON.stringify(technologies);
+  }
+
+  // If frontend sends an object
+  if (typeof technologies === "object") {
+    return JSON.stringify(technologies);
+  }
+
+  // If frontend sends a string
+  return String(technologies);
+};
+
+// =====================================================
+// GET ALL PROJECTS
+// =====================================================
+
 const getAllProjects = async () => {
   const [rows] = await pool.query(
     `SELECT *
@@ -11,7 +38,10 @@ const getAllProjects = async () => {
   return rows;
 };
 
-// Get project by ID
+// =====================================================
+// GET PROJECT BY ID
+// =====================================================
+
 const getProjectById = async (id) => {
   const [rows] = await pool.query(
     `SELECT *
@@ -23,7 +53,10 @@ const getProjectById = async (id) => {
   return rows[0];
 };
 
-// Create project
+// =====================================================
+// CREATE PROJECT
+// =====================================================
+
 const createProject = async (data) => {
   const {
     title,
@@ -35,25 +68,39 @@ const createProject = async (data) => {
     live_url
   } = data;
 
+  const safeTechnologies =
+    normalizeTechnologies(technologies);
+
   const [result] = await pool.query(
     `INSERT INTO projects
-      (title, type, description, image, technologies, github_url, live_url)
+      (
+        title,
+        type,
+        description,
+        image,
+        technologies,
+        github_url,
+        live_url
+      )
      VALUES (?, ?, ?, ?, ?, ?, ?)`,
     [
       title,
       type,
       description,
-      image,
-      technologies,
-      github_url,
-      live_url
+      image || null,
+      safeTechnologies,
+      github_url || null,
+      live_url || null
     ]
   );
 
   return result.insertId;
 };
 
-// Update project
+// =====================================================
+// UPDATE PROJECT
+// =====================================================
+
 const updateProject = async (id, data) => {
   const {
     title,
@@ -64,6 +111,9 @@ const updateProject = async (id, data) => {
     github_url,
     live_url
   } = data;
+
+  const safeTechnologies =
+    normalizeTechnologies(technologies);
 
   const [result] = await pool.query(
     `UPDATE projects
@@ -80,10 +130,10 @@ const updateProject = async (id, data) => {
       title,
       type,
       description,
-      image,
-      technologies,
-      github_url,
-      live_url,
+      image || null,
+      safeTechnologies,
+      github_url || null,
+      live_url || null,
       id
     ]
   );
@@ -91,7 +141,10 @@ const updateProject = async (id, data) => {
   return result.affectedRows;
 };
 
-// Delete project
+// =====================================================
+// DELETE PROJECT
+// =====================================================
+
 const deleteProject = async (id) => {
   const [result] = await pool.query(
     `DELETE FROM projects
@@ -101,6 +154,10 @@ const deleteProject = async (id) => {
 
   return result.affectedRows;
 };
+
+// =====================================================
+// EXPORT
+// =====================================================
 
 module.exports = {
   getAllProjects,
