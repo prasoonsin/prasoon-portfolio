@@ -1,4 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import {
+  getCertifications,
+  createCertification,
+  updateCertification,
+  deleteCertification,
+} from "../../services/api";
 
 import "./Certifications.css";
 
@@ -7,11 +14,15 @@ function Certifications() {
 
   const [editingId, setEditingId] = useState(null);
 
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [deletingId, setDeletingId] = useState(null);
+
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
   const [formData, setFormData] = useState({
-    name: "",
+    title: "",
     organization: "",
     issue_date: "",
     expiry_date: "",
@@ -19,6 +30,37 @@ function Certifications() {
     credential_url: "",
     description: "",
   });
+
+  // =====================================================
+  // LOAD CERTIFICATIONS
+  // =====================================================
+
+  const loadCertifications = async () => {
+    try {
+      setLoading(true);
+      setError("");
+
+      const data = await getCertifications();
+
+      setCertifications(Array.isArray(data) ? data : []);
+    } catch (err) {
+      console.error("Error loading certifications:", err);
+
+      setError(
+        "Unable to load certifications. Please try again later."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // =====================================================
+  // INITIAL LOAD
+  // =====================================================
+
+  useEffect(() => {
+    loadCertifications();
+  }, []);
 
   // =====================================================
   // HANDLE INPUT
@@ -39,7 +81,7 @@ function Certifications() {
 
   const resetForm = () => {
     setFormData({
-      name: "",
+      title: "",
       organization: "",
       issue_date: "",
       expiry_date: "",
@@ -56,13 +98,17 @@ function Certifications() {
   // SUBMIT
   // =====================================================
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     setError("");
     setSuccess("");
 
-    if (!formData.name.trim()) {
+    // ---------------------------------------------
+    // VALIDATION
+    // ---------------------------------------------
+
+    if (!formData.title.trim()) {
       setError("Certification name is required.");
       return;
     }
@@ -72,48 +118,117 @@ function Certifications() {
       return;
     }
 
+    // ---------------------------------------------
+    // DATA TO SEND TO API
+    // ---------------------------------------------
+
     const certificationData = {
-      ...formData,
-      name: formData.name.trim(),
+      title: formData.title.trim(),
       organization: formData.organization.trim(),
+      issue_date: formData.issue_date || null,
+      expiry_date: formData.expiry_date || null,
       credential_id: formData.credential_id.trim(),
       credential_url: formData.credential_url.trim(),
       description: formData.description.trim(),
     };
 
-    if (editingId) {
-      setCertifications((prev) =>
-        prev.map((item) =>
-          item.id === editingId
-            ? {
-                ...item,
-                ...certificationData,
-              }
-            : item
-        )
+    try {
+      setSaving(true);
+
+      // =================================================
+      // UPDATE EXISTING CERTIFICATION
+      // =================================================
+
+      if (editingId) {
+        const updatedCertification = await updateCertification(
+          editingId,
+          certificationData
+        );
+
+        /*
+         * Some APIs return the updated object directly.
+         * Others return { data: updatedObject }.
+         * Handle both safely.
+         */
+
+        const updatedItem =
+          updatedCertification?.data ||
+          updatedCertification;
+
+        setCertifications((prev) =>
+          prev.map((item) =>
+            item.id === editingId
+              ? {
+                  ...item,
+                  ...updatedItem,
+                  ...certificationData,
+                }
+              : item
+          )
+        );
+
+        setSuccess(
+          "Certification updated successfully."
+        );
+      }
+
+      // =================================================
+      // CREATE NEW CERTIFICATION
+      // =================================================
+
+      else {
+        const createdCertification =
+          await createCertification(
+            certificationData
+          );
+
+        /*
+         * Some APIs return the created object directly.
+         * Others return { data: createdObject }.
+         */
+
+        const newItem =
+          createdCertification?.data ||
+          createdCertification;
+
+        /*
+         * If the backend returns the created record,
+         * use it. Otherwise reload from database.
+         */
+
+        if (newItem?.id) {
+          setCertifications((prev) => [
+            newItem,
+            ...prev,
+          ]);
+        } else {
+          await loadCertifications();
+        }
+
+        setSuccess(
+          "Certification added successfully."
+        );
+      }
+
+      resetForm();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    } catch (err) {
+      console.error(
+        "Error saving certification:",
+        err
       );
 
-      setSuccess("Certification updated successfully.");
-    } else {
-      const newCertification = {
-        id: Date.now(),
-        ...certificationData,
-      };
-
-      setCertifications((prev) => [
-        newCertification,
-        ...prev,
-      ]);
-
-      setSuccess("Certification added successfully.");
+      setError(
+        err?.message ||
+          "Unable to save certification. Please try again."
+      );
+    } finally {
+      setSaving(false);
     }
-
-    resetForm();
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
   };
 
   // =====================================================
@@ -124,10 +239,14 @@ function Certifications() {
     setEditingId(item.id);
 
     setFormData({
-      name: item.name || "",
+      title: item.title || "",
       organization: item.organization || "",
-      issue_date: item.issue_date || "",
-      expiry_date: item.expiry_date || "",
+      issue_date: item.issue_date
+        ? String(item.issue_date).slice(0, 10)
+        : "",
+      expiry_date: item.expiry_date
+        ? String(item.expiry_date).slice(0, 10)
+        : "",
       credential_id: item.credential_id || "",
       credential_url: item.credential_url || "",
       description: item.description || "",
@@ -146,23 +265,51 @@ function Certifications() {
   // DELETE
   // =====================================================
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     const confirmed = window.confirm(
-      "Are you sure you want to delete this certification?"
+      "Are you sure you want to permanently delete this certification?"
     );
 
-    if (!confirmed) return;
-
-    setCertifications((prev) =>
-      prev.filter((item) => item.id !== id)
-    );
-
-    if (editingId === id) {
-      resetForm();
+    if (!confirmed) {
+      return;
     }
 
-    setSuccess("Certification deleted successfully.");
     setError("");
+    setSuccess("");
+    setDeletingId(id);
+
+    try {
+      await deleteCertification(id);
+
+      /*
+       * Only remove it from the UI AFTER
+       * the database deletion succeeds.
+       */
+
+      setCertifications((prev) =>
+        prev.filter((item) => item.id !== id)
+      );
+
+      if (editingId === id) {
+        resetForm();
+      }
+
+      setSuccess(
+        "Certification deleted successfully."
+      );
+    } catch (err) {
+      console.error(
+        "Error deleting certification:",
+        err
+      );
+
+      setError(
+        err?.message ||
+          "Unable to delete certification. Please try again."
+      );
+    } finally {
+      setDeletingId(null);
+    }
   };
 
   // =====================================================
@@ -170,7 +317,9 @@ function Certifications() {
   // =====================================================
 
   const formatDate = (date) => {
-    if (!date) return "-";
+    if (!date) {
+      return "-";
+    }
 
     const parsedDate = new Date(date);
 
@@ -215,6 +364,7 @@ function Certifications() {
             type="button"
             className="admin-certifications-secondary-button"
             onClick={resetForm}
+            disabled={saving}
           >
             + Add New
           </button>
@@ -276,18 +426,19 @@ function Certifications() {
 
           <div className="admin-certifications-form-group">
 
-            <label htmlFor="name">
+            <label htmlFor="title">
               Certification Name
             </label>
 
             <input
-              id="name"
-              name="name"
+              id="title"
+              name="title"
               type="text"
               placeholder="AWS Certified Cloud Practitioner"
-              value={formData.name}
+              value={formData.title}
               onChange={handleChange}
               required
+              disabled={saving}
             />
 
           </div>
@@ -311,6 +462,7 @@ function Certifications() {
               value={formData.organization}
               onChange={handleChange}
               required
+              disabled={saving}
             />
 
           </div>
@@ -334,6 +486,7 @@ function Certifications() {
                 type="date"
                 value={formData.issue_date}
                 onChange={handleChange}
+                disabled={saving}
               />
 
             </div>
@@ -351,6 +504,7 @@ function Certifications() {
                 type="date"
                 value={formData.expiry_date}
                 onChange={handleChange}
+                disabled={saving}
               />
 
             </div>
@@ -375,6 +529,7 @@ function Certifications() {
               placeholder="ABC123XYZ"
               value={formData.credential_id}
               onChange={handleChange}
+              disabled={saving}
             />
 
           </div>
@@ -397,6 +552,7 @@ function Certifications() {
               placeholder="https://example.com/verify"
               value={formData.credential_url}
               onChange={handleChange}
+              disabled={saving}
             />
 
           </div>
@@ -419,6 +575,7 @@ function Certifications() {
               placeholder="Describe what this certification covers..."
               value={formData.description}
               onChange={handleChange}
+              disabled={saving}
             />
 
           </div>
@@ -435,6 +592,7 @@ function Certifications() {
                 type="button"
                 className="admin-certifications-cancel-button"
                 onClick={resetForm}
+                disabled={saving}
               >
                 Cancel
               </button>
@@ -443,8 +601,11 @@ function Certifications() {
             <button
               type="submit"
               className="admin-certifications-primary-button"
+              disabled={saving}
             >
-              {editingId
+              {saving
+                ? "Saving..."
+                : editingId
                 ? "Update Certification"
                 : "Add Certification"}
             </button>
@@ -468,17 +629,47 @@ function Certifications() {
             <h2>Your Certifications</h2>
 
             <p>
-              {certifications.length}{" "}
-              {certifications.length === 1
-                ? "certification"
-                : "certifications"}
+              {loading
+                ? "Loading..."
+                : `${certifications.length} ${
+                    certifications.length === 1
+                      ? "certification"
+                      : "certifications"
+                  }`}
             </p>
           </div>
 
         </div>
 
 
-        {certifications.length === 0 ? (
+        {/* =================================================
+            LOADING
+            ================================================= */}
+
+        {loading ? (
+
+          <div className="admin-certifications-empty-state">
+
+            <div className="admin-certifications-empty-icon">
+              ◌
+            </div>
+
+            <h3>
+              Loading certifications...
+            </h3>
+
+            <p>
+              Fetching your certifications from the
+              database.
+            </p>
+
+          </div>
+
+        ) : certifications.length === 0 ? (
+
+          /* =================================================
+             EMPTY
+             ================================================= */
 
           <div className="admin-certifications-empty-state">
 
@@ -499,6 +690,10 @@ function Certifications() {
 
         ) : (
 
+          /* =================================================
+             CERTIFICATION CARDS
+             ================================================= */
+
           <div className="admin-certifications-grid">
 
             {certifications.map((item) => (
@@ -508,7 +703,9 @@ function Certifications() {
                 key={item.id}
               >
 
-                {/* CARD TOP */}
+                {/* =================================================
+                    CARD TOP
+                    ================================================= */}
 
                 <div className="admin-certification-card-top">
 
@@ -519,7 +716,7 @@ function Certifications() {
                   <div className="admin-certification-title">
 
                     <h3>
-                      {item.name}
+                      {item.title}
                     </h3>
 
                     <span>
@@ -531,7 +728,9 @@ function Certifications() {
                 </div>
 
 
-                {/* DATE */}
+                {/* =================================================
+                    DATE
+                    ================================================= */}
 
                 {(item.issue_date ||
                   item.expiry_date) && (
@@ -551,7 +750,9 @@ function Certifications() {
                 )}
 
 
-                {/* CREDENTIAL */}
+                {/* =================================================
+                    CREDENTIAL
+                    ================================================= */}
 
                 {item.credential_id && (
 
@@ -570,7 +771,9 @@ function Certifications() {
                 )}
 
 
-                {/* DESCRIPTION */}
+                {/* =================================================
+                    DESCRIPTION
+                    ================================================= */}
 
                 {item.description && (
 
@@ -581,7 +784,9 @@ function Certifications() {
                 )}
 
 
-                {/* VERIFY LINK */}
+                {/* =================================================
+                    VERIFY LINK
+                    ================================================= */}
 
                 {item.credential_url && (
 
@@ -597,14 +802,22 @@ function Certifications() {
                 )}
 
 
-                {/* ACTIONS */}
+                {/* =================================================
+                    ACTIONS
+                    ================================================= */}
 
                 <div className="admin-certification-card-actions">
 
                   <button
                     type="button"
                     className="admin-certification-edit-button"
-                    onClick={() => handleEdit(item)}
+                    onClick={() =>
+                      handleEdit(item)
+                    }
+                    disabled={
+                      saving ||
+                      deletingId !== null
+                    }
                   >
                     Edit
                   </button>
@@ -615,8 +828,14 @@ function Certifications() {
                     onClick={() =>
                       handleDelete(item.id)
                     }
+                    disabled={
+                      saving ||
+                      deletingId !== null
+                    }
                   >
-                    Delete
+                    {deletingId === item.id
+                      ? "Deleting..."
+                      : "Delete"}
                   </button>
 
                 </div>
