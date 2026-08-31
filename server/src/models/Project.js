@@ -1,36 +1,18 @@
 const pool = require("../config/database");
 
-// =====================================================
-// HELPER
-// =====================================================
-
-// Convert technologies into a safe value for MySQL
-const normalizeTechnologies = (technologies) => {
-  if (technologies === undefined || technologies === null) {
-    return null;
-  }
-
-  // If frontend sends an array
-  if (Array.isArray(technologies)) {
-    return JSON.stringify(technologies);
-  }
-
-  // If frontend sends an object
-  if (typeof technologies === "object") {
-    return JSON.stringify(technologies);
-  }
-
-  // If frontend sends a string
-  return String(technologies);
-};
-
-// =====================================================
-// GET ALL PROJECTS
-// =====================================================
-
+// Get all projects
 const getAllProjects = async () => {
   const [rows] = await pool.query(
-    `SELECT *
+    `SELECT
+       id,
+       title,
+       type,
+       description,
+       technologies,
+       github_url,
+       live_url,
+       image_url AS image,
+       created_at
      FROM projects
      ORDER BY id DESC`
   );
@@ -38,13 +20,19 @@ const getAllProjects = async () => {
   return rows;
 };
 
-// =====================================================
-// GET PROJECT BY ID
-// =====================================================
-
+// Get project by ID
 const getProjectById = async (id) => {
   const [rows] = await pool.query(
-    `SELECT *
+    `SELECT
+       id,
+       title,
+       type,
+       description,
+       technologies,
+       github_url,
+       live_url,
+       image_url AS image,
+       created_at
      FROM projects
      WHERE id = ?`,
     [id]
@@ -53,10 +41,7 @@ const getProjectById = async (id) => {
   return rows[0];
 };
 
-// =====================================================
-// CREATE PROJECT
-// =====================================================
-
+// Create project
 const createProject = async (data) => {
   const {
     title,
@@ -68,39 +53,33 @@ const createProject = async (data) => {
     live_url
   } = data;
 
-  const safeTechnologies =
-    normalizeTechnologies(technologies);
-
   const [result] = await pool.query(
     `INSERT INTO projects
       (
         title,
         type,
         description,
-        image,
         technologies,
         github_url,
-        live_url
+        live_url,
+        image_url
       )
      VALUES (?, ?, ?, ?, ?, ?, ?)`,
     [
       title,
       type,
       description,
-      image || null,
-      safeTechnologies,
-      github_url || null,
-      live_url || null
+      technologies,
+      github_url,
+      live_url,
+      image
     ]
   );
 
   return result.insertId;
 };
 
-// =====================================================
-// UPDATE PROJECT
-// =====================================================
-
+// Update project
 const updateProject = async (id, data) => {
   const {
     title,
@@ -112,28 +91,25 @@ const updateProject = async (id, data) => {
     live_url
   } = data;
 
-  const safeTechnologies =
-    normalizeTechnologies(technologies);
-
   const [result] = await pool.query(
     `UPDATE projects
      SET
        title = ?,
        type = ?,
        description = ?,
-       image = ?,
        technologies = ?,
        github_url = ?,
-       live_url = ?
+       live_url = ?,
+       image_url = ?
      WHERE id = ?`,
     [
       title,
       type,
       description,
-      image || null,
-      safeTechnologies,
-      github_url || null,
-      live_url || null,
+      technologies,
+      github_url,
+      live_url,
+      image,
       id
     ]
   );
@@ -141,10 +117,7 @@ const updateProject = async (id, data) => {
   return result.affectedRows;
 };
 
-// =====================================================
-// DELETE PROJECT
-// =====================================================
-
+// Delete project
 const deleteProject = async (id) => {
   const [result] = await pool.query(
     `DELETE FROM projects
@@ -154,10 +127,6 @@ const deleteProject = async (id) => {
 
   return result.affectedRows;
 };
-
-// =====================================================
-// EXPORT
-// =====================================================
 
 module.exports = {
   getAllProjects,
